@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Organic Curator - Recipe Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-surface font-body text-on-surface pb-5 pb-md-0">
+
+    <!-- Mobile Top Header (d-md-none) -->
+    <header class="sticky-top bg-surface d-md-none z-3 border-bottom border-light">
+        <div class="container px-4 py-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-sm btn-light rounded-circle shadow-none p-2 d-flex hover-bg-light text-primary-custom">
+                    <span class="material-symbols-outlined fs-5">arrow_back</span>
+                </button>
+                <h1 class="font-headline fw-bold m-0 fs-5 text-primary-custom">Recipe Details</h1>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-light rounded-circle shadow-none p-2 d-flex hover-bg-light text-primary-custom">
+                    <span class="material-symbols-outlined fs-5">favorite</span>
+                </button>
+                <button class="btn btn-sm btn-light rounded-circle shadow-none p-2 d-flex hover-bg-light text-primary-custom">
+                    <span class="material-symbols-outlined fs-5">share</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex">
+        
+        <!-- Desktop Sidebar -->
+        <aside class="desktop-sidebar bg-surface-lowest d-none d-md-flex flex-column p-4 border-end border-light">
+            <div class="mb-5 pt-3 ps-2">
+                <h2 class="fs-5 fw-bolder text-primary-custom font-headline mb-0 text-uppercase tracking-wider">The Living Larder</h2>
+                <p class="text-muted fw-bold mb-0" style="font-size: 11px;">Chef de Cuisine</p>
+            </div>
+            <nav class="d-flex flex-column gap-2 flex-grow-1 font-headline">
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">inventory_2</span> <span class="fw-medium">Pantry</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-white bg-primary-custom shadow-sm px-4 py-3 rounded-pill">
+                    <span class="material-symbols-outlined">restaurant_menu</span> <span class="fw-bold">Recipes</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">calendar_today</span> <span class="fw-medium">Meal Plan</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">shopping_cart</span> <span class="fw-medium">Grocery List</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">settings</span> <span class="fw-medium">Settings</span>
+                </a>
+            </nav>
+            <button class="btn bg-primary-custom text-white rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 mt-auto shadow hover-lift">
+                <span class="material-symbols-outlined">add_circle</span> Add New Recipe
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 desktop-main-content">
+
+            <!-- Desktop Header -->
+            <header class="d-none d-md-flex justify-content-between align-items-center px-5 py-4 bg-surface bg-opacity-75 backdrop-blur z-3 sticky-top border-bottom border-light">
+                <h1 class="fs-4 font-headline fw-bold text-primary-custom m-0">The Culinary Curator</h1>
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-flex align-items-center gap-2 bg-light rounded-pill px-4 py-2 border border-light" style="width: 250px;">
+                        <span class="material-symbols-outlined text-muted fs-6">search</span>
+                        <input type="text" class="form-control bg-transparent border-0 shadow-none px-0 py-0 font-body text-sm" placeholder="Search your larder...">
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm text-muted hover-opacity px-2"><span class="material-symbols-outlined">share</span></button>
+                        <button class="btn btn-sm text-muted hover-opacity px-2"><span class="material-symbols-outlined">favorite</span></button>
+                        <button class="btn btn-sm text-muted hover-opacity px-2"><span class="material-symbols-outlined">print</span></button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-4 p-md-5 mx-auto" style="max-width: 1200px;">
+                
+                <!-- Hero Section (Responsive) -->
+                <section class="position-relative w-100 rounded-4 overflow-hidden mb-5 hero-image shadow-sm">
+                    <!-- Mobile Image -->
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmozgCmGyvvXAMS_RqLTnUXLTpisxii4YesCyrStIG_d_gJEiSdju-_iMO4qbPRwvrnD7AwfBXrmfcGRa8t9lNZKYIuMuJUpheGk5Y0JUpFACX82X-X-k17mMGNOinFpZ2Tq7oD6rTjk2CX5bMUuhgypWwGaB8tYWI6O3j76ZeT8XTR-23huXWHgqT7jTCbwOSGLmT0WjM3nGCvpcbhSSO2fWPalHxBMAND1W4dBN8WyOQltPYrQwfvfEcsKo0pAmxYXsC5mBZsDzv" class="w-100 h-100 object-fit-cover d-md-none" alt="Roasted Carrots">
+                    <!-- Desktop Image -->
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzY3G2ZS2h0lT7_lsd_WIxdESz_MYQZ6mbguBSLDh_8BDlSAkml4z1LR3zjxmuhNPMXAOMSxw7rir2DeJwD8cVSFSE9tcad_3XZ7-DfXjeBgyJCZBgIgBADlykVoZeWnAamLhLnUTVMehQDMLG0G6nbiiJzyODkju89qq2iZfbo6aTd1JWT_yRzagRwfllkR2FCK619SnNhby-jPwY_xHYr4YLvqwyEhUGQdvpSKPc4BeANHP7qQULetDfDSuzalf2N897AbheBDA" class="w-100 h-100 object-fit-cover d-none d-md-block" alt="Tagliatelle">
+                    
+                    <!-- Mobile Rating Badge Overlay -->
+                    <div class="position-absolute top-0 end-0 p-3 p-md-4 d-md-none">
+                        <span class="badge bg-glass text-secondary-custom fw-bold d-flex align-items-center gap-1 shadow-sm px-3 py-2 rounded-pill">
+                            <span class="material-symbols-outlined fs-6" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+                        </span>
+                    </div>
+
+                    <!-- Desktop Overlay Content -->
+                    <div class="position-absolute top-0 bottom-0 start-0 w-100 d-none d-md-flex flex-column justify-content-end p-5" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2), transparent);">
+                        <span class="badge bg-success bg-opacity-25 text-success-emphasis border border-success border-opacity-50 px-3 py-2 rounded-pill text-uppercase fw-bold mb-3" style="width: fit-content; letter-spacing: 2px;">Spring Seasonal Special</span>
+                        <h1 class="display-4 font-headline fw-bolder text-white mb-3">Artisan Wild Garlic Pesto Tagliatelle</h1>
+                        <p class="text-white-50 fs-5 mb-0 max-w-md fw-light">A fragrant, vibrant celebration of early spring foraging. Silky handmade pasta ribbons coated in a pungent, emerald-hued wild garlic and Pecorino pesto.</p>
+                    </div>
+                </section>
+
+                <div class="row g-5">
+                    
+                    <!-- Left Column -->
+                    <div class="col-lg-8">
+                        
+                        <!-- Mobile Header Info (Hidden on Desktop) -->
+                        <div class="d-md-none mb-4">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 text-uppercase fw-bold" style="font-size: 10px;">Seasonal</span>
+                                <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill px-3 py-2 text-uppercase fw-bold" style="font-size: 10px;">Vegan Option</span>
+                            </div>
+                            <h2 class="font-headline display-6 fw-bold text-dark mb-2">Roasted Heritage Carrots</h2>
+                            <p class="text-muted fs-6">A vibrant medley of carrots roasted with wild honey and aromatic thyme for a naturally sweet, earth-to-table experience.</p>
+                        </div>
+
+                        <!-- Info & Stats Bar -->
+                        <div class="row g-3 mb-5">
+                            <!-- Cook Info -->
+                            <div class="col-md-6 col-12">
+                                <div class="bg-surface-low rounded-4 p-4 d-flex justify-content-between align-items-center h-100 shadow-sm border border-light">
+                                    <div class="text-center">
+                                        <span class="material-symbols-outlined text-primary-custom mb-1 fs-4">schedule</span>
+                                        <div class="text-uppercase text-muted fw-bold" style="font-size: 10px; letter-spacing: 1px;">Time</div>
+                                        <div class="font-headline fw-bold fs-5">45m</div>
+                                    </div>
+                                    <div class="border-end border-2 border-secondary h-50 opacity-25"></div>
+                                    <div class="text-center">
+                                        <span class="material-symbols-outlined text-primary-custom mb-1 fs-4">bar_chart</span>
+                                        <div class="text-uppercase text-muted fw-bold" style="font-size: 10px; letter-spacing: 1px;">Level</div>
+                                        <div class="font-headline fw-bold fs-5">Easy</div>
+                                    </div>
+                                    <div class="border-end border-2 border-secondary h-50 opacity-25"></div>
+                                    <div class="text-center">
+                                        <span class="material-symbols-outlined text-primary-custom mb-1 fs-4">restaurant</span>
+                                        <div class="text-uppercase text-muted fw-bold" style="font-size: 10px; letter-spacing: 1px;">Yield</div>
+                                        <div class="font-headline fw-bold fs-5">4 srv</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Nutrition (Desktop Primary) -->
+                            <div class="col-md-6 col-12 d-none d-md-block">
+                                <div class="bg-surface-lowest rounded-4 p-4 d-flex justify-content-around h-100 shadow-sm border border-light align-items-center">
+                                    <div class="text-center">
+                                        <div class="text-uppercase text-muted fw-bold mb-1" style="font-size: 10px; letter-spacing: 1px;">Calories</div>
+                                        <div class="font-headline fw-bold fs-4 text-primary-custom">480</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-uppercase text-muted fw-bold mb-1" style="font-size: 10px; letter-spacing: 1px;">Protein</div>
+                                        <div class="font-headline fw-bold fs-4">14g</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-uppercase text-muted fw-bold mb-1" style="font-size: 10px; letter-spacing: 1px;">Carbs</div>
+                                        <div class="font-headline fw-bold fs-4">58g</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-uppercase text-muted fw-bold mb-1" style="font-size: 10px; letter-spacing: 1px;">Fats</div>
+                                        <div class="font-headline fw-bold fs-4 text-secondary-custom">22g</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Household Buzz (Mobile First position) -->
+                        <div class="mb-5 d-md-none">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="font-headline fw-bold fs-5 m-0">Family Buzz</h3>
+                                <span class="text-secondary-custom fw-semibold small">3 others liked this</span>
+                            </div>
+                            <div class="d-flex align-items-center bg-surface-lowest p-3 rounded-4 shadow-sm border border-light">
+                                <div class="d-flex me-3" style="margin-right: -10px;">
+                                    <div class="rounded-circle overflow-hidden border border-white border-2" style="width:36px; height:36px; z-index:3;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIcflXlKjhnWOemw3L-QeM-RlPfZvelg5skjfHqnJ6_tIa_dR-TXvhHPI-Ro0jnQbKR32ZBsV-TvcC_c8f3Qf6j62GXu8Hzqf2_tMIdwU5wN9Ovt6wbffPx7sysfKWhtllBE_DtOfF7JXa84Ajg6_O3CVzRtTGAwapRFZMdQYhL0w5yVemdrb_7ZokUm2AOgXvE5ujDtDyX2BxWf_98lmLcv7tFeclfnS8op6Jyz_g5sctoSVuo32lT_db0vJBav54FnWpE_cN3qOT" class="w-100 h-100 object-fit-cover" alt="User">
+                                    </div>
+                                    <div class="rounded-circle overflow-hidden border border-white border-2 position-relative" style="width:36px; height:36px; right:12px; z-index:2;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgQV89iXfy2zKADX5S_otheIJvTOohkACbHYIlvjY_-xKIhuBNH5SuRZqLChLQUSBoWBjn7qoUklUKAOD0_V993GgCpz0CJYRfTu3C5knKzZs1nxbv0_ruzeWEEBqzDljKcSI-_9iQFZtO7xT5FWcQaM93kxy-nLkF8k4NCTGYat1TF9ZzAYFMw9JkccArg_d6wjOkeC0IdCPCT3KN7Ed68Oj4l8D0aqtiaxLwewP4T6i3AN9pczxhlQsosA1clGfz7122r8h6s_9f" class="w-100 h-100 object-fit-cover" alt="User">
+                                    </div>
+                                    <div class="rounded-circle border border-white border-2 bg-light d-flex align-items-center justify-content-center position-relative fw-bold text-muted" style="width:36px; height:36px; right:24px; z-index:1; font-size:10px;">
+                                        +3
+                                    </div>
+                                </div>
+                                <p class="mb-0 small text-muted fw-medium position-relative" style="left: -15px;">Leo and Sarah loved this last Tuesday</p>
+                            </div>
+                        </div>
+
+                        <!-- Step by Step Instructions -->
+                        <div class="mb-5">
+                            <h2 class="fs-4 font-headline fw-bold d-flex align-items-center gap-3 mb-4">
+                                <span class="bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                                    <span class="material-symbols-outlined fs-5">format_list_numbered</span>
+                                </span>
+                                Method
+                            </h2>
+
+                            <div class="d-flex flex-column gap-5">
+                                <!-- Step 1 -->
+                                <div class="d-flex gap-4">
+                                    <div class="rounded-circle bg-light text-muted fw-bold d-flex align-items-center justify-content-center flex-shrink-0 font-headline shadow-sm border border-white" style="width: 44px; height: 44px;">1</div>
+                                    <div class="pb-4 border-bottom border-light w-100">
+                                        <h3 class="fs-5 fw-bold font-headline mb-2 text-dark d-none d-md-block">Toast the Pine Nuts</h3>
+                                        <p class="text-muted lh-lg mb-4">Preheat your oven to 200°C (390°F). Thoroughly wash the carrots, leaving some of the green stems for an organic aesthetic. If making the pasta version, heat a small dry skillet over medium heat. Add pine nuts and toast.</p>
+                                        <div class="w-100 rounded-4 overflow-hidden shadow-sm" style="height: 200px;">
+                                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuArjq94AQbDrfeQULZTvpv9u4oOpY_9UEdh1XVYbQBVAWDD5HrBINzEN4BffdaRjJeYH5cflXL8r6ZDZC3ltjPWzRKsq39xlRxm7ehKSPv8Ye05vn6liJCvlraHdLdo6VZ6Psg4eYds3lX66T0EQMXdqJbFvu_iRsUPNPR_P8FaQsM77JKWDHN8lnCPEyBIq7hfElJPo437Wn2lZnJn0m5znEN326ALc23VNCCOfCDWDQm9ouqo-_Oo0KjpY--5xu5YRjgEPYY0XYx6" class="w-100 h-100 object-fit-cover" alt="Method Step">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Step 2 -->
+                                <div class="d-flex gap-4">
+                                    <div class="rounded-circle bg-light text-muted fw-bold d-flex align-items-center justify-content-center flex-shrink-0 font-headline shadow-sm border border-white" style="width: 44px; height: 44px;">2</div>
+                                    <div class="pb-4 border-bottom border-light w-100">
+                                        <h3 class="fs-5 fw-bold font-headline mb-2 text-dark d-none d-md-block">Blend the Flavors</h3>
+                                        <p class="text-muted lh-lg mb-0">Toss the ingredients in a large bowl with wild honey, olive oil, and sea salt until evenly glazed. Arrange them on a baking tray in a single layer. Alternatively, pulse pesto ingredients in a food processor.</p>
+                                    </div>
+                                </div>
+                                <!-- Step 3 -->
+                                <div class="d-flex gap-4">
+                                    <div class="rounded-circle bg-light text-muted fw-bold d-flex align-items-center justify-content-center flex-shrink-0 font-headline shadow-sm border border-white" style="width: 44px; height: 44px;">3</div>
+                                    <div class="pb-4 w-100">
+                                        <h3 class="fs-5 fw-bold font-headline mb-2 text-dark d-none d-md-block">Cook & Combine</h3>
+                                        <p class="text-muted lh-lg mb-4">Roast for 35-40 minutes until tender and caramelized. Scatter fresh thyme in the last 5 minutes. If boiling pasta, cook until al dente, reserve water, and toss with pesto.</p>
+                                        <div class="row g-3 d-none d-md-flex">
+                                            <div class="col-6">
+                                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrd2zY-j-OphagYmJd2u24F4mvH6pH7BkxrQt7h8xlCV1RgMMqh2fAhmqH2VehnCM5UtldEwNEpFltMGdJGiNNSFhM2IUXxmPwpKdHUm1iGOnCrARxSAPyUSOhzRcFqMOcEm5u77HyUSyU-StAEC8xTZKm-3TfbPKQUkRrQxd1wYHa4b7sFxXA9NyWy8AaGvOOoAQ_Eh7Cxx8JruRDSnOWaP-DB6_QxurvzImBy02Yq-T_iGHnZfYvfAQ6wJ_jVVi_xuJlUGxXsmU" class="w-100 rounded-3 shadow-sm object-fit-cover" style="height: 120px;" alt="Step image 1">
+                                            </div>
+                                            <div class="col-6">
+                                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGsMCUyeQnNIkrt_egJ5URy1VVUKl9VJsWabxzhszTvQuaU9dNRsp7ZWm2F584YaF0OI45OiFROm5z40gMIYOwOdmMHoae7idyLzmofODziKBonGcIHhnr7LkxcXw8YcslrZ4SVZGXbIPMmMNeRYWnx8znvDCBwwEfY2On9ODe8N_bf7MI0KLrT-BBvTvbr5mmNPhJRDdebkIgRd8eTBuhZ_wqX_z27J80k9zP2bkp-i93bWJ9XY0_QR4Ov6syrWybLLm7u-cQgyQ" class="w-100 rounded-3 shadow-sm object-fit-cover" style="height: 120px;" alt="Step image 2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column (Sidebar equivalent on mobile) -->
+                    <div class="col-lg-4">
+                        
+                        <!-- Ingredients List -->
+                        <div class="bg-surface-low rounded-4 p-4 p-md-5 mb-5 shadow-sm border border-light">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3 class="font-headline fw-bold fs-5 m-0">Ingredients</h3>
+                                <button class="btn btn-link text-primary-custom text-decoration-none p-0 d-flex align-items-center gap-1 shadow-none">
+                                    <span class="material-symbols-outlined fs-5">playlist_add_check</span> Add to List
+                                </button>
+                            </div>
+                            
+                            <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+                                <!-- Got it -->
+                                <li class="bg-white p-3 rounded-3 d-flex justify-content-between align-items-center shadow-sm hover-lift cursor-pointer">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="rounded-1 border border-primary border-2 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">
+                                            <span class="material-symbols-outlined text-primary fs-6 fw-bold">check</span>
+                                        </div>
+                                        <span class="fw-medium font-body text-dark">500g Heritage Carrots</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-1 text-primary-custom">
+                                        <span class="material-symbols-outlined fs-6" style="font-variation-settings: 'FILL' 1;">eco</span>
+                                    </div>
+                                </li>
+                                <!-- Need it -->
+                                <li class="bg-white bg-opacity-50 p-3 rounded-3 d-flex justify-content-between align-items-center border border-dashed hover-bg-light cursor-pointer">
+                                    <div class="d-flex align-items-center gap-3 text-muted">
+                                        <div class="rounded-1 border border-secondary bg-transparent d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;"></div>
+                                        <span class="fw-medium font-body">2 tbsp Wild Honey</span>
+                                    </div>
+                                    <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill px-2">Buy</span>
+                                </li>
+                                <!-- Got it -->
+                                <li class="bg-white p-3 rounded-3 d-flex justify-content-between align-items-center shadow-sm hover-lift cursor-pointer">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="rounded-1 border border-primary border-2 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;">
+                                            <span class="material-symbols-outlined text-primary fs-6 fw-bold">check</span>
+                                        </div>
+                                        <span class="fw-medium font-body text-dark">Fresh Thyme Sprigs</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-1 text-primary-custom">
+                                        <span class="material-symbols-outlined fs-6" style="font-variation-settings: 'FILL' 1;">eco</span>
+                                    </div>
+                                </li>
+                                <!-- Need it -->
+                                <li class="bg-white bg-opacity-50 p-3 rounded-3 d-flex justify-content-between align-items-center border border-dashed hover-bg-light cursor-pointer">
+                                    <div class="d-flex align-items-center gap-3 text-muted">
+                                        <div class="rounded-1 border border-secondary bg-transparent d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;"></div>
+                                        <span class="fw-medium font-body">Wild Garlic Leaves</span>
+                                    </div>
+                                    <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill px-2">Low</span>
+                                </li>
+                            </ul>
+
+                            <button class="btn bg-secondary-custom text-white w-100 rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm font-headline">
+                                <span class="material-symbols-outlined">add_task</span> Add to Meal Plan
+                            </button>
+                        </div>
+
+                        <!-- Household Community Activity (Desktop mostly) -->
+                        <div class="d-none d-md-block">
+                            <h3 class="fs-5 fw-bold font-headline border-bottom border-light pb-3 mb-4">Household Activity</h3>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex gap-3">
+                                    <div class="rounded-circle overflow-hidden flex-shrink-0 border border-white shadow-sm" style="width: 40px; height: 40px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRjExFEOSXYI4y8juy1vmfcRLOV6FFxUhEPrD94vlfAVDEYIRE3AC-zUp7Fy0NklOjmJoqf_wHZXiZC7C_ZKyjIohx35n0pBor47roxaM43fu9zFBvq42VNBC_sVNSxQTnSI2hMP-uADOUflEub9SlPHkXhR90xMbfoDzWuWHy09p12LO7p5kUO2W_1shCJ1MqSjYPGbHM1iJMU0X36jgwbu1bUFJPl2Ai4fyO9uyGPMWtS-0vqSo1NyZQLVHdmsDODJECoIDxNro" class="w-100 h-100 object-fit-cover" alt="Clara">
+                                    </div>
+                                    <div>
+                                        <div class="bg-surface-lowest p-3 rounded-3 shadow-sm border border-light" style="border-top-left-radius: 0 !important;">
+                                            <p class="fw-bold text-primary-custom mb-1 fs-6">Clara</p>
+                                            <p class="text-muted small mb-0 lh-sm">Absolutely loved the punchy flavor! Maybe a squeeze more lemon next time?</p>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-3 mt-2 px-1">
+                                            <button class="btn btn-link p-0 text-decoration-none text-muted d-flex align-items-center gap-1 shadow-none" style="font-size: 11px; font-weight: 700;">
+                                                <span class="material-symbols-outlined text-secondary-custom" style="font-size: 14px; font-variation-settings: 'FILL' 1;">favorite</span> 12
+                                            </button>
+                                            <button class="btn btn-link p-0 text-decoration-none text-muted fw-bold shadow-none text-uppercase" style="font-size: 10px;">REPLY</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="position-relative mt-4">
+                                    <input type="text" class="form-control bg-light border-0 shadow-none rounded-pill py-3 ps-4 pe-5" placeholder="Add a note...">
+                                    <button class="btn position-absolute top-50 end-0 translate-middle-y text-primary-custom shadow-none pe-3">
+                                        <span class="material-symbols-outlined fs-5">send</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigationbar (d-md-none) -->
+    <nav class="d-md-none fixed-bottom bg-glass border-top border-light d-flex justify-content-around py-2 z-3 shadow-sm">
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">inventory_2</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Pantry</span>
+        </a>
+        <a href="#" class="text-decoration-none bg-primary-custom bg-opacity-25 text-primary-custom py-1 px-4 d-flex flex-column align-items-center justify-content-center rounded-pill shadow-sm transition">
+            <span class="material-symbols-outlined fs-5 mb-1">restaurant_menu</span>
+            <span class="font-body fw-bolder text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Recipes</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">group</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Community</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">person</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Profile</span>
+        </a>
+    </nav>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

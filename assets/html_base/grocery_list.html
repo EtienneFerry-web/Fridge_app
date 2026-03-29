@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Organic Curator - Automated Grocery List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-surface font-body text-on-surface pb-5 pb-md-0">
+
+    <!-- Mobile Top Header (d-md-none) -->
+    <header class="sticky-top bg-glass d-md-none z-3 border-bottom border-light">
+        <div class="container px-4 py-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-primary-custom fs-4">eco</span>
+                <h1 class="font-headline fw-bold m-0 fs-5 text-primary-custom">The Organic Curator</h1>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="rounded-circle overflow-hidden border border-success border-2" style="width: 36px; height: 36px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOpo7-4k1bGEfI9K6V5MNRNxKiUHIoOKdxU6xuoFVA4V7NyXdy7ZflLcieBh0KzNedslj3Qo3TxbWxcnerj4KXJxckOiH_q-mQoqPYCshUDNJK9kXUG7jNzD_1GZ68OwR6pqirSXLPmNs3K-xapRrtBt8zljEES3vlANNsvMzsc4avCmRKihMswJiPjm-GQIaOE4SZbxuUErC4YrAuGvjeznPDIFPfFz2k4FbtgEzzFqen1a07pZy93j2956gYl4LlyM98vbfrEpsc" alt="Profile" class="w-100 h-100 object-fit-cover">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex">
+        
+        <!-- Desktop Sidebar -->
+        <aside class="desktop-sidebar bg-surface-low d-none d-md-flex flex-column p-4">
+            <div class="d-flex flex-column align-items-center mb-5 pt-3 text-center">
+                <div class="rounded-3 bg-light d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px;">
+                    <span class="material-symbols-outlined text-primary-custom">restaurant_menu</span>
+                </div>
+                <h2 class="fs-5 fw-bolder text-primary-custom font-headline mb-0">The Living Larder</h2>
+                <p class="text-uppercase tracking-widest text-muted fw-bold" style="font-size: 10px; letter-spacing: 2px;">Greenwood Household</p>
+            </div>
+            <nav class="d-flex flex-column gap-2 flex-grow-1 font-headline">
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">grid_view</span> <span class="fw-medium">Hub</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-primary-custom bg-surface-lowest shadow-sm px-4 py-3 rounded-pill">
+                    <span class="material-symbols-outlined">shopping_basket</span> <span class="fw-bold">Grocery List</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">person_2</span> <span class="fw-medium">Personal Space</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">explore</span> <span class="fw-medium">Discovery</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">settings</span> <span class="fw-medium">Admin</span>
+                </a>
+            </nav>
+            <button class="btn bg-secondary-custom text-white rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 mt-auto shadow">
+                <span class="material-symbols-outlined">add</span> Add to Plan
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 desktop-main-content p-4 p-md-5">
+
+            <!-- Header Section -->
+            <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-4">
+                <div class="max-w-xl">
+                    <h1 class="display-5 font-headline fw-bolder text-dark mb-2">Weekly Harvest List</h1>
+                    <!-- Mobile text -->
+                    <p class="text-on-surface-variant fs-6 d-md-none">Your automated grocery needs based on the "Late Summer Greens" weekly plan. Focus on what's missing in your pantry.</p>
+                    <!-- Desktop text -->
+                    <p class="text-on-surface-variant font-medium opacity-75 d-none d-md-block">Curated from your active meal plan</p>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <div class="bg-surface-lowest border border-light px-4 py-2 rounded-pill d-flex align-items-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined text-secondary-custom fs-5">calendar_today</span>
+                        <span class="text-sm fw-bold">OCT 24 - OCT 31</span>
+                    </div>
+                    
+                    <div class="d-none d-md-flex align-items-center gap-3">
+                        <div class="rounded-circle bg-white d-flex align-items-center justify-content-center border shadow-sm cursor-pointer" style="width: 48px; height: 48px;">
+                            <span class="material-symbols-outlined text-primary-custom">notifications</span>
+                        </div>
+                        <div class="rounded-circle overflow-hidden border border-success border-2 shadow-sm" style="width: 48px; height: 48px;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYQ72vMRMsadLPKPbTRnlRrW_HGE9-_F2crAaDe-0W-wuAzTcx8RqXHVXUl-EbQNb6Ecww70SZO1yXxc57E0HFJEPPqwwcIalRSLxC20eXh3S_NWeSdXRaputAsgfmvNsQ-f19l5mrrwsJ5Gi_QtvoUzg55B3NyYQE42zgi86XmNR9liC2q7Itt_YD7n8B3SkUXfomlmMpuuJEpDAUsV_RKlu-9iaw1Yjk6ZxbiIJUEul4Yuti91ZqHlv5s7MHYGWwNTJVJZso1-Q" class="w-100 h-100 object-fit-cover" alt="Profile Desktop">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="row g-5">
+                
+                <!-- Center Column: Groceries -->
+                <div class="col-lg-8 space-y-5">
+                    
+                    <!-- Category: Vegetables -->
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-secondary-custom fs-4">eco</span>
+                            <h2 class="font-headline fw-bold fs-3 text-dark m-0">Vegetables</h2>
+                            <hr class="flex-grow-1 border-secondary opacity-25">
+                            <span class="small fw-bold text-muted bg-light px-3 py-1 rounded-pill">4 ITEMS</span>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <!-- Veg 1: Out of Stock -->
+                            <div class="col-md-6">
+                                <div class="bg-surface-lowest p-3 p-md-4 rounded-4 shadow-sm border border-light hover-lift d-flex align-items-center gap-3 h-100">
+                                    <div class="rounded-3 overflow-hidden bg-light shadow-sm flex-shrink-0" style="width: 64px; height: 64px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrcpVCtrPm5Tax_4fzHi1VMx1RBnfKv2a3KvYonta3tI26JdQyTXsMmksCwQxfNXksIZdwQmnSPztNkz4Pk8p7iPSsECfwprzpsTrZV2UXXadFRdyD2C7DArD_xcd1S5kAYDLdTkplwI1tcDHuR6PCisTHplD-E6GPsmzAHYGxuIr3YpsWqjNvDB5zwtZwde8sPZcqbhlp-1EIGHF1GAUJQKn3VnQfPwRPhD1q9jximpXt9FmM7Vq_iVGj9r_Z4moaohZqndXhhyU" class="w-100 h-100 object-fit-cover" alt="Kale">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="font-headline fw-bold fs-6 mb-1 text-dark">Tuscan Kale</h3>
+                                        <p class="small text-muted mb-0 fw-medium">2 Large Bunches</p>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill fw-bold text-uppercase" style="font-size: 10px;">Out of Stock</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Veg 2: In Pantry -->
+                            <div class="col-md-6">
+                                <div class="bg-surface-lowest p-3 p-md-4 rounded-4 shadow-sm border border-light hover-lift d-flex align-items-center gap-3 h-100">
+                                    <div class="rounded-3 overflow-hidden bg-light shadow-sm flex-shrink-0" style="width: 64px; height: 64px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA12bev_bMn0z5kWtx5k_5RKaJk1bYKe7CxzvvvrHPpNBfspd95DeM8eOiHDhjROu_OcY_sjypndbiCPhX5lkrsmN_ZL4XuGA1zUbnSvElG6qghdiu5g9FRLn1zGGBMpNtK7Flghccl_sAil0i2gl1RzuhBirhDr1UkyAt-kfExlaXyYTGNuXomInnyDB4couLUQCZoiWV2XTnvcA2oBWBwlNy7RyqbCJE8sf0a5DvAyExBO1ofm42MNNSm_93J7qFcIpTFu3xDNUo" class="w-100 h-100 object-fit-cover" alt="Shallots">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="font-headline fw-bold fs-6 mb-1 text-dark">French Shallots</h3>
+                                        <p class="small text-muted mb-0 fw-medium">450g</p>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill fw-bold text-uppercase" style="font-size: 10px;">In Pantry</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Veg 3: Missing -->
+                            <div class="col-md-6">
+                                <div class="bg-surface-lowest p-3 p-md-4 rounded-4 shadow-sm border border-light hover-lift d-flex align-items-center gap-3 h-100">
+                                    <div class="rounded-3 overflow-hidden bg-light shadow-sm flex-shrink-0" style="width: 64px; height: 64px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCes_9rw26nOzDMXF3a1EI2_m-Io1ensgN2GEkulvBOCFIgumD2uMNQ3ZQeFVuKez4p5QecGCoWjqQoy-0Wk6u640N5Fu7CkIPk4Vi7paaVK5PW_Fg36GDUpVyOs_kfnYm4MyJWXjKUrNjGTRE4NFOrcRVDp9uaGqT_H1UX2u0rZKN4UYC2EVEx_RKh7F7QpvzB-8brkXPF2VO9Olo3ORc5VnLc7o-OTrKCn3Am-nRajjn3VXHFgdCkbjlFHonY_kgPf2sWsg7oA-0" class="w-100 h-100 object-fit-cover" alt="Carrots">
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="font-headline fw-bold fs-6 mb-1 text-dark">Heirloom Carrots</h3>
+                                        <p class="small text-muted mb-0 fw-medium">1 Bunch</p>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <span class="badge bg-warning bg-opacity-10 text-warning-emphasis rounded-pill fw-bold text-uppercase" style="font-size: 10px;">Low Stock</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category: Dairy (Mobile Style List) -->
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-secondary-custom fs-4">kitchen</span>
+                            <h2 class="font-headline fw-bold fs-3 text-dark m-0">Dairy & Eggs</h2>
+                            <hr class="flex-grow-1 border-secondary opacity-25">
+                            <span class="small fw-bold text-muted bg-light px-3 py-1 rounded-pill">2 ITEMS</span>
+                        </div>
+                        
+                        <div class="bg-surface-lowest rounded-4 shadow-sm border border-light overflow-hidden p-2">
+                            <div class="d-flex justify-content-between align-items-center p-3 hover-bg-light transition rounded-3 mb-1">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-3 border border-secondary border-opacity-25 d-flex align-items-center justify-content-center bg-white" style="width:24px; height:24px;"></div>
+                                    <div>
+                                        <h3 class="font-body fw-bold fs-6 mb-0 text-dark">Greek Yogurt</h3>
+                                        <p class="small text-muted mb-0">1 kg</p>
+                                    </div>
+                                </div>
+                                <div><span class="material-symbols-outlined text-muted">inventory_2</span></div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center p-3 hover-bg-light transition rounded-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-3 border border-success border-opacity-25 d-flex align-items-center justify-content-center bg-light" style="width:24px; height:24px;">
+                                        <span class="material-symbols-outlined fs-6 text-success">check</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-body fw-bold fs-6 mb-0 text-dark text-decoration-line-through text-muted">Free Range Eggs</h3>
+                                        <p class="small text-muted mb-0">12 ct</p>
+                                    </div>
+                                </div>
+                                <div><span class="material-symbols-outlined text-success">home_storage</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Right Column: Context/Stats -->
+                <div class="col-lg-4 space-y-4">
+                    
+                    <!-- Progress Card -->
+                    <div class="bg-primary-custom bg-opacity-10 p-4 rounded-4 position-relative overflow-hidden mb-4 border border-success border-opacity-10">
+                        <div class="position-relative z-1">
+                            <h3 class="fs-5 fw-bold text-primary-custom font-headline mb-2">Weekly Summary</h3>
+                            <p class="small text-primary-custom text-opacity-75 fw-medium mb-4">9 items total required for 7 planned recipes.</p>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between small fw-medium text-dark mb-1">
+                                    <span>In Pantry</span>
+                                    <span class="fw-bold text-primary-custom">5</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-primary-custom" role="progressbar" style="width: 55%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="d-flex justify-content-between small fw-medium text-dark mb-1">
+                                    <span>Needed</span>
+                                    <span class="fw-bold text-secondary-custom">4</span>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 45%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Smart Tip -->
+                            <div class="mt-4 p-3 bg-white rounded-4 shadow-sm">
+                                <div class="d-flex gap-3">
+                                    <span class="material-symbols-outlined text-warning">lightbulb</span>
+                                    <div>
+                                        <span class="d-block small fw-bold text-uppercase text-muted mb-1" style="font-size: 10px;">Smart Tip</span>
+                                        <p class="small text-dark mb-0">You have <b>Spinach</b> expiring soon. It can substitute <b>Kale</b> in your Farro Salad.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="position-absolute border border-success rounded-circle" style="width:150px; height:150px; top:-50px; right:-50px; opacity: 0.1; background:white;"></div>
+                    </div>
+
+                    <!-- Meal Context list -->
+                    <div class="bg-surface-low p-4 rounded-4 mb-4">
+                        <h3 class="fs-5 fw-bold text-dark font-headline mb-3">Meal Context</h3>
+                        
+                        <div class="d-flex gap-3 mb-3 hover-lift cursor-pointer bg-white p-2 rounded-3 shadow-sm">
+                            <div class="rounded-3 overflow-hidden shadow-sm flex-shrink-0" style="width: 48px; height: 48px;">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTNRVmxZyPhNXAemPATuXOUzObpFN4TDAOoF49FKLBVr8sP62ub52FkhxEHhXxHy1ETBZp_DFkcBXhRf-yEQt6LhaJmP782uInjN9Rpusq_WtRTKhVH2saI3XpoNBpEehyZnokRUa4zAYCLxaM3lfWwpL87wlHdsAjLuL_YgTN_Wtz5rX-5NShNtTbuvu_2CcynBw1c0cWjG9pTYGGthvE89hg8lBU3Utti0QYuuNegRvCRe-2MnmDSNYPiHj2_vgMZ9flFi9YdAA" class="w-100 h-100 object-fit-cover" alt="Salad">
+                            </div>
+                            <div>
+                                <h4 class="small fw-bold text-dark mb-0 font-body">Roasted Vegetable Farro Salad</h4>
+                                <span class="badge bg-light text-muted small mt-1">Requires 6 List Items</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-3 hover-lift cursor-pointer bg-white p-2 rounded-3 shadow-sm">
+                            <div class="rounded-3 overflow-hidden shadow-sm flex-shrink-0" style="width: 48px; height: 48px;">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxCwc6JKPzBDdmFebp6G2BG00q1eT0SVqUkCk67fhZWHP2fJm4O49JHWC5tXEerCTg37jCOiif3AEU4mpGzdY9TzK22O1VIeGvVzB5bwpZcZQGmNOPlGSbytmNgbqsCiJJAb6bVswNBmGnWf4_IBkYwSVTMunL5hxGm-SOqoiiQcbCwMovPBnokqtTjFzw0YWUvnFjIhE3fPqe3j2NpywY6M07LDVpmSdihNIZE-61hT81H-1roN6wcIeP63EC5ZBMpQfQ6z6o4Yo" class="w-100 h-100 object-fit-cover" alt="Pasta">
+                            </div>
+                            <div>
+                                <h4 class="small fw-bold text-dark mb-0 font-body">Creamy Kale & Pecorino Pasta</h4>
+                                <span class="badge bg-light text-muted small mt-1">Requires 4 List Items</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-link w-100 text-primary-custom fw-bold text-decoration-none text-uppercase mt-3 small d-flex align-items-center justify-content-center gap-1 shadow-none">
+                            View Full Plan <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigationbar (d-md-none) -->
+    <nav class="d-md-none fixed-bottom bg-glass border-top border-light d-flex justify-content-around py-2 z-3 shadow-sm">
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
+            <span class="material-symbols-outlined">home_work</span>
+            <span class="font-body fw-medium" style="font-size: 10px;">Hub</span>
+        </a>
+        <a href="#" class="text-decoration-none bg-primary-custom text-white py-1 px-3 d-flex flex-column align-items-center justify-content-center rounded-pill shadow-sm">
+            <span class="material-symbols-outlined" style="font-size:20px;">shopping_basket</span>
+            <span class="font-body fw-bold" style="font-size: 10px;">Groceries</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
+            <span class="material-symbols-outlined">menu_book</span>
+            <span class="font-body fw-medium" style="font-size: 10px;">Recipes</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
+            <span class="material-symbols-outlined">explore</span>
+            <span class="font-body fw-medium" style="font-size: 10px;">Discover</span>
+        </a>
+    </nav>
+    
+    <!-- Floating Action Button for Print/Share -->
+    <a href="#" class="btn bg-secondary-custom text-white position-fixed rounded-circle shadow-lg d-flex align-items-center justify-content-center hover-lift" style="bottom: 2rem; right: 2rem; width: 64px; height: 64px; z-index: 1030;">
+        <span class="material-symbols-outlined fs-3 d-none d-md-block">print</span>
+        <span class="material-symbols-outlined fs-3 d-md-none">share</span>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Organic Curator - Personal Space</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-surface font-body text-on-surface pb-5 pb-md-0 d-flex flex-column min-vh-100">
+
+    <!-- Mobile Top Header (d-md-none) -->
+    <header class="sticky-top bg-surface bg-opacity-75 backdrop-blur d-md-none z-3 border-bottom border-light shadow-sm">
+        <div class="container px-4 py-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <span class="material-symbols-outlined text-primary-custom fs-4">eco</span>
+                <h1 class="font-headline fw-bold m-0 fs-5 text-primary-custom">The Organic Curator</h1>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <button class="btn btn-sm shadow-none p-0 d-flex align-items-center justify-content-center text-muted"><span class="material-symbols-outlined fs-5">search</span></button>
+                <div class="rounded-circle overflow-hidden border border-success border-2 shadow-sm" style="width: 36px; height: 36px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvA3V-gx7TGym6JmW5M90VO_-3l3d0U48uHTYoouLt-_SRteZgZ_NcBLHdlCUf5EuXzbvTjkX7jghgOLwcJb2m7IKxclT-K8XqbrGt27QqP9o1IHpPBkSm4C1bYhLQGdsqUUp4b1Grf5rsi5DHUUPKVIS5jLW0YEgjBzMpDctVo_sT4bryC0zzP1rL_DVffs3YFBk5QsFeUBF2zW7Af928kcTgle_hoWQwJGDxTul8h8oL1voJgLC9iPFuOm9uojaW7_83KJFapIY" alt="Profile" class="w-100 h-100 object-fit-cover">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex flex-grow-1">
+        
+        <!-- Desktop Sidebar -->
+        <aside class="desktop-sidebar bg-surface-lowest d-none d-md-flex flex-column p-4 border-end border-light shadow-sm">
+            <div class="d-flex align-items-center gap-3 mb-5 pt-3 ps-2">
+                <div class="rounded-circle bg-primary-custom text-white d-flex align-items-center justify-content-center flex-shrink-0 shadow-sm" style="width: 44px; height: 44px;">
+                    <span class="material-symbols-outlined fs-5">restaurant</span>
+                </div>
+                <div>
+                    <h2 class="fs-6 fw-bold text-primary-custom font-headline mb-0 lh-sm">The Living Larder</h2>
+                    <p class="text-uppercase tracking-widest text-muted fw-bold m-0" style="font-size: 9px; letter-spacing: 1px;">Greenwood Household</p>
+                </div>
+            </div>
+            <nav class="d-flex flex-column gap-2 flex-grow-1 font-headline">
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">grid_view</span> <span class="fw-medium">Hub</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">shopping_basket</span> <span class="fw-medium">Grocery List</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-primary-custom bg-white shadow-sm px-4 py-3 rounded-pill transition">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person_2</span> <span class="fw-bold">Personal Space</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">explore</span> <span class="fw-medium">Discovery</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-light transition">
+                    <span class="material-symbols-outlined">settings</span> <span class="fw-medium">Admin</span>
+                </a>
+            </nav>
+            <div class="mt-auto pt-4">
+                <button class="btn bg-secondary-custom text-white rounded-pill py-3 w-100 fw-bold d-flex align-items-center justify-content-center gap-2 shadow hover-lift font-headline">
+                    <span class="material-symbols-outlined fs-5">add_circle</span> Add to Plan
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 desktop-main-content p-4 p-md-5">
+
+            <!-- Editorial Header Section -->
+            <header class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end mb-5 gap-4">
+                <div class="max-w-md">
+                    <nav class="d-flex gap-2 text-primary-custom fw-bold text-uppercase tracking-wider mb-3" style="font-size: 11px;">
+                        <span>Profile</span> <span class="text-muted">/</span> <span class="text-dark">Personal Space</span>
+                    </nav>
+                    <h1 class="display-5 font-headline fw-bolder text-dark mb-3">Your Culinary <span class="text-primary-custom fst-italic fw-medium">Sanctuary</span></h1>
+                    <p class="text-muted font-body mb-0 lh-lg">A curated collection of your saved inspirations and nourishing experiments. Organized by soul and season.</p>
+                </div>
+                <!-- Action Buttons & Badges (Desktop Top Right) -->
+                <div class="d-flex align-items-center gap-4">
+                    <div class="d-none d-md-flex position-relative me-4" style="margin-right: 1.5rem !important;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvA3V-gx7TGym6JmW5M90VO_-3l3d0U48uHTYoouLt-_SRteZgZ_NcBLHdlCUf5EuXzbvTjkX7jghgOLwcJb2m7IKxclT-K8XqbrGt27QqP9o1IHpPBkSm4C1bYhLQGdsqUUp4b1Grf5rsi5DHUUPKVIS5jLW0YEgjBzMpDctVo_sT4bryC0zzP1rL_DVffs3YFBk5QsFeUBF2zW7Af928kcTgle_hoWQwJGDxTul8h8oL1voJgLC9iPFuOm9uojaW7_83KJFapIY" class="rounded-circle border border-white border-2 object-fit-cover shadow-sm position-relative z-3" style="width: 48px; height: 48px;" alt="User">
+                        <div class="rounded-circle bg-success bg-opacity-25 text-success d-flex align-items-center justify-content-center fw-bold text-sm border border-white border-2 position-absolute" style="width: 48px; height: 48px; right: -20px; z-index: 2;">+3</div>
+                    </div>
+                    <button class="btn bg-primary-custom text-white rounded-pill px-4 py-3 fw-bold shadow-sm d-none d-md-flex align-items-center gap-2 hover-lift primary-gradient-hover font-headline">
+                        <span class="material-symbols-outlined fs-5">add</span> Create Recipe
+                    </button>
+                    <button class="btn bg-surface-low rounded-circle shadow-none p-3 d-none d-md-flex align-items-center justify-content-center text-muted transition hover-bg-light border border-light">
+                        <span class="material-symbols-outlined fs-5">notifications</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dynamic Filter Bar -->
+            <section class="mb-5 d-flex flex-column flex-lg-row gap-4 align-items-lg-center sticky-top z-4 bg-surface py-3" style="top: 0px;">
+                <div class="position-relative flex-grow-1">
+                    <span class="material-symbols-outlined position-absolute text-muted fs-5" style="top: 50%; transform: translateY(-50%); left: 1rem;">search</span>
+                    <input type="text" class="form-control bg-white border border-light shadow-sm rounded-pill py-3 ps-5 pe-4 font-body" placeholder="Search your saved recipes...">
+                </div>
+                <div class="d-flex align-items-center gap-2 overflow-x-auto custom-scrollbar pb-2 pb-lg-0 w-100" style="max-width: 100%; flex-wrap: nowrap;">
+                    <button class="btn bg-white border border-light shadow-sm rounded-pill d-flex align-items-center gap-2 px-3 py-2 flex-shrink-0 text-muted hover-bg-light">
+                        <span class="material-symbols-outlined fs-6 text-primary-custom">tune</span> <span class="fw-bold font-headline text-sm">Filter</span>
+                    </button>
+                    <button class="btn bg-primary-custom text-white rounded-pill px-4 py-2 fw-bold font-headline text-sm flex-shrink-0 shadow-sm border border-primary primary-gradient-hover">All Saved</button>
+                    <button class="btn bg-white text-muted rounded-pill px-4 py-2 fw-medium font-headline text-sm flex-shrink-0 border border-light hover-bg-light transition">Under 30 mins</button>
+                    <button class="btn bg-white text-muted rounded-pill px-4 py-2 fw-medium font-headline text-sm flex-shrink-0 border border-light hover-bg-light transition">Easy Prep</button>
+                    <button class="btn bg-white text-muted rounded-pill px-4 py-2 fw-medium font-headline text-sm flex-shrink-0 border border-light hover-bg-light transition">Plant Based</button>
+                    <button class="btn bg-white text-muted rounded-pill px-4 py-2 fw-medium font-headline text-sm flex-shrink-0 border border-light hover-bg-light transition">High Protein</button>
+                </div>
+                <div class="ms-auto ps-3 d-none d-xl-flex align-items-center border-start border-light border-2">
+                    <span class="d-flex align-items-center gap-2 text-uppercase tracking-wider fw-bold text-secondary-custom" style="font-size: 10px;">
+                        <span class="rounded-circle bg-secondary-custom" style="width: 8px; height: 8px;"></span> 24 Saved
+                    </span>
+                </div>
+            </section>
+
+            <!-- Recipe Gallery (Bento-style Grid) -->
+            <div class="row g-4 mb-5">
+                
+                <!-- Featured Card (Large) -->
+                <div class="col-lg-8">
+                    <div class="bg-white rounded-4 overflow-hidden shadow-sm hover-shadow-lg transition position-relative hover-lift h-100" style="min-height: 400px;">
+                        <div class="position-absolute w-100 h-100 top-0 start-0 z-1">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpXE-3D8quttXccVVTGZzaZnheubO62KXmlq117chqaYnh00E2y4KQEb5drigfGKvpuCT7PxGgZRZkZNtmd6rh_NJWhxfpZTHKTa5Lr87G7kP_ksG05f7O7xTg36yY5m4VVqLclWkDw17L-0qkmEwBkfuPxt0qFl00xNHq2UmMbeJ00uXTY-zBNeEb6X81JkvIsOnJcgcwGhtOdj39FfBw3Z4vv4jGkwKgsnYDWpQHk2WsAXyZzGSpUWhjDngZXJE16iqt-Znoeo2W" class="w-100 h-100 object-fit-cover transition" style="filter: brightness(0.8);" alt="Salad">
+                        </div>
+                        <div class="position-relative z-2 p-4 p-md-5 d-flex flex-column h-100 w-100 bg-glass" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1) 60%, transparent);">
+                            
+                            <div class="d-flex justify-content-between align-items-start mb-auto w-100">
+                                <span class="badge bg-white text-primary-custom px-3 py-2 rounded-pill fw-bold text-uppercase shadow-sm tracking-wider" style="font-size: 10px;">
+                                    <span class="material-symbols-outlined fs-6 align-middle me-1">inventory_2</span> In Pantry
+                                </span>
+                                <button class="btn btn-light rounded-circle shadow p-2 text-secondary-custom d-flex align-items-center hover-lift">
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                </button>
+                            </div>
+
+                            <div class="mt-auto w-100">
+                                <div class="d-flex gap-3 mb-3">
+                                    <span class="badge bg-dark bg-opacity-50 text-white border border-white border-opacity-25 px-3 py-2 rounded-pill fw-bold d-flex align-items-center gap-1 shadow-sm"><span class="material-symbols-outlined fs-6">schedule</span> 15m</span>
+                                    <span class="badge bg-dark bg-opacity-50 text-white border border-white border-opacity-25 px-3 py-2 rounded-pill fw-bold d-flex align-items-center gap-1 shadow-sm"><span class="material-symbols-outlined fs-6">fitness_center</span> Beginner</span>
+                                </div>
+                                <h3 class="display-6 font-headline fw-bolder text-white mb-2 lh-sm text-shadow">Harvest Moon Heirloom Salad</h3>
+                                <p class="text-white-50 font-body mb-4 lh-base max-w-md d-none d-md-block text-shadow">A rich, earthy combination of seasonal roasted vegetables, crisp greens, and a velvety tahini drizzle that brings out the natural sweetness of the produce.</p>
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+                                    <div class="d-flex align-items-center gap-2 text-white">
+                                        <div class="rounded-circle bg-primary-custom text-white d-flex align-items-center justify-content-center fw-bold border border-white border-2" style="width: 32px; height: 32px; font-size: 10px;">EA</div>
+                                        <span class="fw-medium font-body text-sm text-shadow">by Elena Arzak</span>
+                                    </div>
+                                    <button class="btn bg-white text-primary-custom rounded-pill px-4 py-2 fw-bold shadow-lg d-none d-md-flex align-items-center gap-2 hover-opacity transition">
+                                        Cook Now <span class="material-symbols-outlined fs-5">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border border-light h-100 d-flex flex-column hover-lift transition cursor-pointer group">
+                        <div class="rounded-4 overflow-hidden mb-4 shadow-sm position-relative aspect-square" style="height: 220px;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfwhAwN_EYJwc502cL2KkJsX5lAq9eeplX3tfAhWg1RVS2DeEq6jskchNcUzyYE_hQppEA4dwcLPoelg7btyD46un7p45AaTpjEp6TPCOEv_CZwml4AkjY_vMlMGEIvCERHoO8VNNFMcJtxPzNWJSPjYZP8230FtfYMUMXgPdfMhEHU-S5lAKc0mnw14e7ZvjHI4BoV3KIhEdoJtEUWw4K2KXAco_YU12D7_uJ8Ff681B72V2DbdWOiKOiIsIy6HD9ulfEddki64_2" class="w-100 h-100 object-fit-cover transition" alt="Salmon Bowl">
+                        </div>
+                        <span class="text-secondary-custom fw-bold text-uppercase tracking-widest mb-2" style="font-size: 10px;">Quick Lunch</span>
+                        <h4 class="font-headline fw-bold fs-5 text-dark mb-4 group-hover-text-primary transition">Pacific Rim Salmon Bowl</h4>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="d-flex align-items-center gap-1 text-muted fw-bold small"><span class="material-symbols-outlined fs-5">timer</span> 20m</span>
+                            <span class="material-symbols-outlined text-primary-custom opacity-50 group-hover-opacity-100 transition">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Card Series -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="bg-white rounded-4 overflow-hidden shadow-sm border border-light h-100 d-flex flex-column hover-lift transition cursor-pointer">
+                        <div class="position-relative" style="height: 180px;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsx_VftdsifpFSqn5plVura3iPJFFhtppu7X6OeIOQS_bMLQhFLhPph7cpBzBXvqWD3aiNXezjKYZ9hZvHzS7RjqAdNndKxIb_1_eWI02Y7JL95m74yHc2GNe9AneqczB_xWo0vUd-4BEgo6yXr0zvIXBG-DBwH_B2kt8HE80lMFRDbcK8FqLzangpCZzwYV5Y57vC8qbbKcxUWcvyTVRSxBuI4vZi8Cyxuq6VojWEV_XD3xaN7W6uZvStEagwMk04V1IRxzf9OuM" class="w-100 h-100 object-fit-cover" alt="Ramen">
+                            <button class="btn btn-light bg-opacity-75 rounded-circle shadow p-2 position-absolute text-dark hover-bg-white transition" style="bottom: -20px; right: 20px; z-index: 2;">
+                                <span class="material-symbols-outlined fs-5">add</span>
+                            </button>
+                        </div>
+                        <div class="p-4 pt-5 d-flex flex-column flex-grow-1">
+                            <span class="text-secondary-custom fw-bold text-uppercase tracking-widest mb-2" style="font-size: 9px;">Quick Dinner</span>
+                            <h4 class="font-headline fw-bold fs-6 text-dark mb-3">Midnight Shoyu Ramen</h4>
+                            <div class="d-flex align-items-center gap-3 mt-auto text-muted small fw-medium">
+                                <span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">timer</span> 20m</span>
+                                <span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">bar_chart</span> Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="bg-white rounded-4 overflow-hidden shadow-sm border border-light h-100 d-flex flex-column hover-lift transition cursor-pointer">
+                        <div class="position-relative" style="height: 180px;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAZt40WtyC7eeT7HbpdDCuaMBhspDFv4QSzlhnk0ApJjHDiwgDbJtsCZQGnbmKtE8ILx2Oc7c8ac_Y6QPbbrkMRe19u_DslvRHEE2GiCmAG4LmTcUkJ7xXaHDdowdB392bmglPtXLwoIKCNn9XHMYcGLczfzDsLQh-otAr906pU_o9Wsk_qYo-7Y-EX94q2lbyVG2ZdRRdWlP6dZCgZ3H7WmPYEXyimGwCXbukgJP5xo7s1n2Vh2B2PdfDajuydjETvkeqZRhnXdw" class="w-100 h-100 object-fit-cover" alt="Toast">
+                            <button class="btn btn-light bg-opacity-75 rounded-circle shadow p-2 position-absolute text-dark hover-bg-white transition" style="bottom: -20px; right: 20px; z-index: 2;">
+                                <span class="material-symbols-outlined fs-5">add</span>
+                            </button>
+                        </div>
+                        <div class="p-4 pt-5 d-flex flex-column flex-grow-1">
+                            <span class="text-primary-custom fw-bold text-uppercase tracking-widest mb-2" style="font-size: 9px;">Healthy Breakfast</span>
+                            <h4 class="font-headline fw-bold fs-6 text-dark mb-3">Heritage Grain Avocado Toast</h4>
+                            <div class="d-flex align-items-center gap-3 mt-auto text-muted small fw-medium">
+                                <span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">timer</span> 10m</span>
+                                <span class="d-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6">bar_chart</span> Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="bg-white rounded-4 shadow-sm border border-light overflow-hidden d-flex flex-column flex-md-row h-100 hover-lift transition cursor-pointer">
+                        <div class="w-100 w-md-50" style="height: 250px; min-height: 100%;">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjeorzQ3NVsf6u-1GsSiwB0rsQ1tNABwTTDgGyqrIwHXqPdToQe7PUeCuBi8SecKSx95Sl6hp-iqj-0_wPop2yUj7TXDtnrtCc0lcyU6hUMAX5LJgJXxGquviUaX01SypMsn76RYSgDjE-OjbTPwK9KzD6wH19R-JSmSRFAZI3cXeGu_pqg55GhyaV35rLMDoReXdRgm7SaXfxBUCv_00DTcY-kfLpR0VF2gDoLVopOc6rtA2p9Q-c2ovPsglTYSuJhzyhRArAzqBq" class="w-100 h-100 object-fit-cover" alt="Pasta">
+                        </div>
+                        <div class="w-100 w-md-50 p-4 p-md-5 d-flex flex-column h-100 bg-surface-lowest">
+                            <span class="text-primary-custom fw-bold text-uppercase tracking-widest mb-3" style="font-size: 10px;">Chef's Choice</span>
+                            <h3 class="font-headline fw-bold fs-4 text-dark mb-3 lh-sm">Sun-Dried Tomato & Wild Garlic Linguine</h3>
+                            <p class="text-muted small mb-4 lh-base d-none d-md-block">Indulge in the rich, earthy flavors of wild garlic paired with the concentrated sweetness of sun-dried tomatoes.</p>
+                            
+                            <div class="mt-auto pt-4 border-top border-light d-flex justify-content-between align-items-center">
+                                <div class="d-flex gap-4">
+                                    <div>
+                                        <p class="text-muted text-uppercase fw-bold m-0" style="font-size: 9px;">Time</p>
+                                        <p class="fw-bold text-dark m-0 fs-6 font-headline">45 Mins</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-muted text-uppercase fw-bold m-0" style="font-size: 9px;">Difficulty</p>
+                                        <p class="fw-bold text-dark m-0 fs-6 font-headline">Med</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-light rounded-circle shadow-none p-2 text-primary-custom hover-bg-white border border-light">
+                                    <span class="material-symbols-outlined fs-5">bookmark</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-center mb-5">
+                <button class="btn bg-white border border-light shadow-sm text-dark rounded-pill px-5 py-3 fw-bold d-flex align-items-center gap-2 hover-bg-light transition font-headline">
+                    See More Recipes <span class="material-symbols-outlined fs-5">expand_more</span>
+                </button>
+            </div>
+
+            <!-- Empty State / Suggestion Section -->
+            <section class="mt-5 p-5 bg-surface-low rounded-4 text-center d-flex flex-column align-items-center border border-light shadow-sm">
+                <div class="rounded-circle bg-primary-custom bg-opacity-25 d-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                    <span class="material-symbols-outlined fs-1 text-primary-custom">auto_awesome</span>
+                </div>
+                <h3 class="fs-3 font-headline fw-bold text-dark mb-3">Looking for something new?</h3>
+                <p class="text-muted font-body max-w-md mb-4 lh-lg">Based on your saved recipes, you might enjoy exploring seasonal foraging guides or artisanal bread making techniques.</p>
+                <button class="btn border border-primary text-primary-custom border-2 rounded-pill px-5 py-3 fw-bold shadow-sm hover-bg-primary hover-text-white transition font-headline">
+                    Explore Discovery
+                </button>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigationbar (d-md-none) -->
+    <nav class="d-md-none fixed-bottom bg-glass border-top border-light d-flex justify-content-around py-2 z-3 shadow-sm">
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">home_work</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Hub</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">shopping_basket</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Groceries</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">menu_book</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Recipes</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center transition hover-opacity">
+            <span class="material-symbols-outlined fs-5 mb-1">explore</span>
+            <span class="font-body fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Discover</span>
+        </a>
+        <a href="#" class="text-decoration-none bg-primary-custom bg-opacity-25 text-primary-custom py-1 px-4 d-flex flex-column align-items-center justify-content-center rounded-pill shadow-sm transition">
+            <span class="material-symbols-outlined fs-5 mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+            <span class="font-body fw-bolder text-uppercase" style="font-size: 9px; letter-spacing: 1px;">Profile</span>
+        </a>
+    </nav>
+    
+    <!-- Floating Action Button Contextual to Personal Space / Create New Recipe -->
+    <a href="#" class="btn bg-secondary-custom text-white position-fixed rounded-circle shadow-lg d-flex align-items-center justify-content-center hover-lift border-0 primary-gradient-hover d-md-none" style="bottom: 5rem; right: 2rem; width: 56px; height: 56px; z-index: 1030;">
+        <span class="material-symbols-outlined fs-2">auto_awesome</span>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

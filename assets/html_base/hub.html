@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Organic Curator - Household Hub</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-surface font-body text-on-surface pb-5 pb-md-0">
+
+    <!-- Mobile Top Header (d-md-none) -->
+    <header class="sticky-top bg-glass d-md-none z-3 border-bottom border-light">
+        <div class="container px-4 py-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-primary-custom fs-4">eco</span>
+                <h1 class="font-headline fw-bold m-0 fs-5 text-primary-custom">The Organic Curator</h1>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="rounded-circle overflow-hidden border border-success border-2" style="width: 36px; height: 36px;">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeDpn2UmQnGOeUMw4U1xuFxM9k46ktebnmqi-bhl1hpx9eazd2RdOx84kIrG77WOnNmoKUNgOOmmaiEc4fw_-SxLPEaOp35-DNNJjsBycHaZkSuRd_wzdMS-uxSgQiz5RfvTydvGfY1nszm-fxL_APbZfvhaWZf9NubbKv9dbbU739Gw8wsiIuikmpHmWPmvfY40MVbgpQzNHnmWvL2uDEhY8vMhmpPlagPM5P2Sff33U7DIjxhakZwtUy5HFcdIXqBePBFvRdAx4" alt="Profile" class="w-100 h-100 object-fit-cover">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex">
+        
+        <!-- Desktop Sidebar -->
+        <aside class="desktop-sidebar bg-surface-low d-none d-md-flex flex-column p-4">
+            <div class="d-flex flex-column align-items-center mb-5 pt-3 text-center">
+                <div class="rounded-3 bg-primary-custom bg-opacity-10 text-primary-custom d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px;">
+                    <span class="material-symbols-outlined">grid_view</span>
+                </div>
+                <h2 class="fs-5 fw-bolder text-primary-custom font-headline mb-0">The Living Larder</h2>
+                <p class="text-uppercase tracking-widest text-muted fw-bold" style="font-size: 10px; letter-spacing: 2px;">Greenwood Household</p>
+            </div>
+            <nav class="d-flex flex-column gap-2 flex-grow-1 font-headline">
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-primary-custom bg-surface-lowest shadow-sm px-4 py-3 rounded-pill">
+                    <span class="material-symbols-outlined">grid_view</span> <span class="fw-bold">Hub</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">shopping_basket</span> <span class="fw-medium">Grocery List</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">person_2</span> <span class="fw-medium">Personal Space</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">explore</span> <span class="fw-medium">Discovery</span>
+                </a>
+                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
+                    <span class="material-symbols-outlined">settings</span> <span class="fw-medium">Admin</span>
+                </a>
+            </nav>
+            <button class="btn bg-secondary-custom text-white rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 mt-auto shadow">
+                <span class="material-symbols-outlined">add</span> Add to Plan
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 desktop-main-content p-4 p-md-5">
+
+            <!-- Desktop Search Header -->
+            <header class="d-none d-md-flex justify-content-between align-items-center mb-5 bg-white p-3 rounded-pill shadow-sm sticky-top z-3" style="top: 20px;">
+                <div class="d-flex align-items-center gap-3 bg-light rounded-pill px-4 py-2 flex-grow-1 max-w-md me-4 border border-light">
+                    <span class="material-symbols-outlined text-muted">search</span>
+                    <input type="text" class="form-control bg-transparent border-0 shadow-none px-0" placeholder="Search family favorites...">
+                </div>
+                <div class="d-flex align-items-center gap-4">
+                    <span class="material-symbols-outlined text-primary-custom cursor-pointer hover-opacity">group</span>
+                    <span class="material-symbols-outlined text-primary-custom cursor-pointer hover-opacity">notifications</span>
+                    <div class="rounded-circle overflow-hidden border border-success border-2 shadow-sm" style="width: 44px; height: 44px;">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeDpn2UmQnGOeUMw4U1xuFxM9k46ktebnmqi-bhl1hpx9eazd2RdOx84kIrG77WOnNmoKUNgOOmmaiEc4fw_-SxLPEaOp35-DNNJjsBycHaZkSuRd_wzdMS-uxSgQiz5RfvTydvGfY1nszm-fxL_APbZfvhaWZf9NubbKv9dbbU739Gw8wsiIuikmpHmWPmvfY40MVbgpQzNHnmWvL2uDEhY8vMhmpPlagPM5P2Sff33U7DIjxhakZwtUy5HFcdIXqBePBFvRdAx4" class="w-100 h-100 object-fit-cover" alt="Profile Desktop">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Hub Header -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
+                <div>
+                    <h1 class="display-5 font-headline fw-bolder text-dark m-0 mb-1">Weekly Harvest Hub</h1>
+                    <p class="text-on-surface-variant font-body mb-0">Planning sustenance for June 12 — June 18</p>
+                </div>
+                <!-- Week Controls -->
+                <div class="d-flex bg-surface-low rounded-pill p-1 align-items-center shadow-sm border border-light" style="width: fit-content;">
+                    <button class="btn bg-white text-primary-custom rounded-pill px-4 py-2 fw-bold shadow-sm font-body border-0 btn-sm">Current Week</button>
+                    <button class="btn btn-link text-muted text-decoration-none rounded-pill px-4 py-2 fw-semibold font-body btn-sm shadow-none hover-bg-light">Next Week</button>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                
+                <!-- Left Column: Weekly Grid -->
+                <div class="col-lg-8 col-xl-9">
+                    
+                    <div class="row g-4 mb-5">
+                        <!-- Monday -->
+                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                            <div class="bg-surface-low rounded-4 p-4 h-100">
+                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Monday</h3>
+                                
+                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light mb-3 hover-lift cursor-grab">
+                                    <div class="rounded-3 overflow-hidden position-relative mb-2" style="height: 120px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjHagRgKx9KXhbNnR6w7AhULVmcOc3dB4vu_AW2tjY8dW8PR3tzHI4oZIHHnEgmMWPT1LfRws-Mvv8rw1QNYoTCb_yCEyddb_Fe_doNZfO5F8RjMIX24tiU598G-HC1YVCDBC9HLwlNa8N1FU5HhPy5FpHRYC7nIijNLpbROUCYk5yN2QRLYU0uP1uy7IYMWjdvZHVToH0LpLduQr-0Emm_NwhRh_arWHy6QX1tzZDODMtBzo45bPv3ZRdeua1ZLFvo7O1Ct9o-TU" class="w-100 h-100 object-fit-cover" alt="Bowl">
+                                        <span class="position-absolute top-0 end-0 m-2 badge bg-success bg-opacity-75 d-flex align-items-center gap-1 shadow-sm"><span class="material-symbols-outlined" style="font-size:12px;">shopping_basket</span> PANTRY</span>
+                                    </div>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill fw-bold text-uppercase mb-2" style="font-size: 10px;">Lunch</span>
+                                    <h4 class="font-headline fs-6 fw-bold mb-1">Harvest Quinoa Bowl</h4>
+                                    <p class="text-muted small mb-0 fw-medium">15 mins</p>
+                                </div>
+                                
+                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light hover-lift cursor-grab">
+                                    <h4 class="font-headline fs-6 fw-bold mb-1">Lentil & Kale Soup</h4>
+                                    <p class="text-muted small mb-0 fw-medium">Ready in 25 mins</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tuesday -->
+                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                            <div class="bg-surface-low rounded-4 p-4 h-100 d-flex flex-column">
+                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Tuesday</h3>
+                                
+                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light mb-3 hover-lift cursor-grab flex-shrink-0">
+                                    <div class="rounded-3 overflow-hidden position-relative mb-2" style="height: 120px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNvyWcXhl45HapVj0eEnmgOE71HhTGKQOiklk4cAGQsYgSvPGe5dkOKtGQvoNXyAqfd-dfxRNroFsqRdRXSOAgFx_33bLDTdK_Rda4MnA_OYgLZmVw-dsAMzs0jiMRA1w__SlQdPcNOvc8sHojnXr-eSLcbdt4J1_oOZz1PKyRuMCt3_NBkf0RpGwbC16I3zmuX_Z8kThFxKXqISiPmYVzjDcZjA2I70JaBGHJaREaRObk5N_c0gXQxZNjcJRsduqI2Fi6N9hGoCfC" class="w-100 h-100 object-fit-cover" alt="Veg">
+                                    </div>
+                                    <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill fw-bold text-uppercase mb-2" style="font-size: 10px;">Dinner</span>
+                                    <h4 class="font-headline fs-6 fw-bold mb-1">Roasted Root Medley</h4>
+                                </div>
+                                
+                                <button class="btn btn-outline-secondary border-dashed w-100 mt-auto py-3 rounded-4 d-flex align-items-center justify-content-center gap-2 fw-bold text-uppercase" style="font-size: 12px; border-width: 2px;">
+                                    <span class="material-symbols-outlined fs-5">add_circle</span> Add Meal
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Wednesday -->
+                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                            <div class="bg-surface-low rounded-4 p-4 h-100">
+                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Wednesday</h3>
+                                
+                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light mb-3 hover-lift cursor-grab">
+                                    <h4 class="font-headline fs-6 fw-bold mb-2">Wild Mushroom Risotto</h4>
+                                    <div class="d-flex gap-1">
+                                        <div class="rounded-circle bg-danger" style="width:16px; height:16px; opacity:0.8;"></div>
+                                        <div class="rounded-circle bg-success" style="width:16px; height:16px; opacity:0.8;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thursday & Friday Plan -->
+                        <div class="col-sm-6 col-lg-6 col-xl-3">
+                            <div class="bg-surface-low rounded-4 p-4 h-100">
+                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Thursday</h3>
+                                
+                                <div class="bg-surface-lowest bg-opacity-50 border-dashed border-2 rounded-4 p-4 d-flex align-items-center justify-content-center border-secondary text-muted mb-4" style="height: 120px;">
+                                    <span class="fs-6 fst-italic">Flexible Planning</span>
+                                </div>
+
+                                <h3 class="font-headline fs-6 text-secondary-custom fw-bolder text-uppercase tracking-wider mb-3">Friday Event</h3>
+                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-danger border-opacity-25 hover-lift cursor-grab position-relative bg-danger bg-opacity-10">
+                                    <div class="rounded-3 overflow-hidden position-relative mb-2" style="height: 100px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvLhi69MdULfdpNITqmjMdi8v2pcU__Ym2MHklART9W-kQMNbCfGxvDDSZQDo9WIctJwYe7K8st4pGgm3OlyFd-YHW8OKbquV5HdtvuSqAAVmQHBf3IeSMHYDfbxgjG6KmrX5gqVLwm16ckQ54DmfUIWdutLlmBQQRO85mp8GG-PyUvC2U61mJjyWatuxhLSEtIWbQQxplnMilc1pfEzJJJDJB_U8JHbFyLDMrmYT70AAjQ1wy2xkcYPTJ5BpxcUqy9auq-nNvbgw" class="w-100 h-100 object-fit-cover" alt="Pizza">
+                                        <span class="position-absolute bottom-0 start-0 m-2 badge bg-danger text-white rounded fw-bold" style="font-size:9px;">PIZZA NIGHT</span>
+                                    </div>
+                                    <h4 class="font-headline fs-6 fw-bold text-danger mb-1">Sourdough Margherita</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Recipe Banner -->
+                    <div class="row g-4 d-md-none d-lg-flex">
+                        <div class="col-lg-8">
+                            <div class="rounded-4 overflow-hidden position-relative h-100 shadow-sm hover-lift" style="min-height: 250px;">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-YhUnIb_yZN7ZnuPBrH3muMmbzNaaB84oYxOopqArw30XusQuHtO9nIZW82wSP-jdofarPMy82iQAQpef4fISieZXJObqL6vkfG30Zv1p9TtJUyUBUkTVYlcC_s8mHfkSR_sRafLIPizXXCCbwMTYkL-8rrYRkbMeBIwzfd1udUKtQoDaQ1haqyYjNQuiMPRRjdD33suzE3TV2rtQmGyqL3vhQNMA_ggru14Gigdu0Z-bZTQEk31E7mwFng88VKnoaJxGNhxiKeHV" alt="Gnocchi" class="w-100 h-100 object-fit-cover position-absolute">
+                                <div class="position-absolute top-0 bottom-0 start-0 end-0 bg-dark bg-opacity-50" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);"></div>
+                                
+                                <div class="position-absolute bottom-0 start-0 p-4 p-md-5 w-100">
+                                    <span class="badge bg-secondary-custom text-white px-3 py-2 rounded-pill fw-bold mb-3">Seasonal Favorite</span>
+                                    <h2 class="display-6 font-headline fw-bold text-white mb-0 text-shadow" style="line-height: 1.1;">Hand-Rolled Gnocchi <br>with Sage Butter</h2>
+                                </div>
+                                <button class="btn btn-light position-absolute top-0 end-0 m-4 rounded-circle bg-glass text-secondary-custom border-0 shadow d-flex p-3 hover-lift">
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="bg-primary-custom text-white rounded-4 p-4 p-md-5 h-100 d-flex flex-column justify-content-between shadow-sm primary-gradient-hover hover-lift">
+                                <div>
+                                    <span class="material-symbols-outlined fs-1 mb-3 text-warning">local_fire_department</span>
+                                    <h3 class="fs-4 font-headline fw-bold mb-3">Quick Prep</h3>
+                                    <p class="small text-white-50 fst-italic lh-lg">"The secret to a calm week is a deliberate Sunday morning."</p>
+                                </div>
+                                <button class="btn btn-light text-primary-custom rounded-pill py-3 fw-bold font-headline mt-4 shadow w-100">Auto-Fill Planner</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Family Activity -->
+                <div class="col-lg-4 col-xl-3 space-y-4">
+                    
+                    <div class="bg-surface-low rounded-4 p-4 p-md-5 shadow-sm d-flex flex-column h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <h3 class="fs-5 fw-bold font-headline text-dark m-0">Family Likes</h3>
+                            <span class="material-symbols-outlined text-secondary-custom">groups</span>
+                        </div>
+                        
+                        <!-- Activity Feed -->
+                        <div class="space-y-4 flex-grow-1">
+                            
+                            <!-- Activity 1 -->
+                            <div class="d-flex gap-3 align-items-start border-bottom border-light pb-3">
+                                <div class="position-relative">
+                                    <div class="rounded-circle overflow-hidden border border-white border-2 shadow-sm" style="width:48px; height:48px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHYKR2dTGww3njsB7OOQT0J4l3MR5sejj1ll4QCkh7h5VEokFIXsdlQFaEhy-Y5DaGpzmPwZtziXrdZWgS2exg14SIHc2Jdgxqk9YPepUqLjiCKq1M2mlU2GunRnhIjp-1LK-fREjHz9yHej5yUjefEf_OlbmH0wWxtdfU5Kad4rtLrUttZTEXH0o9zFDhVfyCvmTmqDvMXkCvTA8YwSEjpD6OcyWvEldXZQFP8Xrq4RV8eHHBNBmrWDWSaazFjzEEAV8hDQLv53x" alt="User" class="w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <div class="position-absolute bottom-0 end-0 bg-secondary-custom rounded-circle border border-white d-flex align-items-center justify-content-center p-1" style="transform: translate(25%, 25%);">
+                                        <span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'FILL' 1;">favorite</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="fw-bold mb-0 text-dark small">Leo</p>
+                                    <p class="small text-muted mb-1 lh-sm">Voted for <span class="text-secondary-custom fw-semibold">Taco Tuesday</span></p>
+                                    <span class="text-uppercase fw-bold text-black-50" style="font-size: 9px; letter-spacing: 1px;">2 hours ago</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Activity 2 -->
+                            <div class="d-flex gap-3 align-items-start border-bottom border-light pb-3">
+                                <div class="position-relative">
+                                    <div class="rounded-circle overflow-hidden border border-white border-2 shadow-sm" style="width:48px; height:48px;">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIC7o5FO6wenMqZGNVRl7p_GwQOvWLnKQ43iDq0pJHdPwOEEz30GPCusn1Mlgo3vdUR_vxTw2C1zv19MzR3sP1YpOQ-B67YNT9NhIygLXNehxbMdOghRDHx37F5-OAgA_VNmIjjzXIR0whBJs9kWKEjdWe1An22T44a2eeBmjBBj_r6XOu_X9dr8-Td6VxIv4WJhqEpJe1NfgCgKRrWDooSWTrLCNJJNQuewIkbEhfa5iIpDmFlG8r6e41TtG-oGk5iZU-HIc52prn" alt="User" class="w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <div class="position-absolute bottom-0 end-0 bg-primary-custom rounded-circle border border-white d-flex align-items-center justify-content-center p-1" style="transform: translate(25%, 25%);">
+                                        <span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'FILL' 1;">eco</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="fw-bold mb-0 text-dark small">Marcus</p>
+                                    <p class="small text-muted mb-1 lh-sm">Shared <span class="text-primary-custom fw-semibold">Wild Honey Recipe</span></p>
+                                    <span class="text-uppercase fw-bold text-black-50" style="font-size: 9px; letter-spacing: 1px;">5 hours ago</span>
+                                </div>
+                            </div>
+
+                            <!-- Activity 3 -->
+                            <div class="d-flex gap-3 align-items-start pb-2">
+                                <div class="position-relative">
+                                    <div class="rounded-circle border border-white border-2 shadow-sm bg-danger bg-opacity-10 text-danger-emphasis d-flex align-items-center justify-content-center fw-bold font-headline" style="width:48px; height:48px;">
+                                        S
+                                    </div>
+                                    <div class="position-absolute bottom-0 end-0 bg-secondary-custom rounded-circle border border-white d-flex align-items-center justify-content-center p-1" style="transform: translate(25%, 25%);">
+                                        <span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'FILL' 1;">add</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="fw-bold mb-0 text-dark small">Sarah</p>
+                                    <p class="small text-muted mb-1 lh-sm">Added <span class="text-secondary-custom fw-semibold">Avocados</span> to Groceries</p>
+                                    <span class="text-uppercase fw-bold text-black-50" style="font-size: 9px; letter-spacing: 1px;">Yesterday</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Inventory Tracker -->
+                        <div class="mt-5 bg-surface-lowest p-4 rounded-4 shadow-sm border border-light">
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="material-symbols-outlined text-primary-custom fs-5">inventory_2</span>
+                                <h4 class="fs-6 fw-bold text-dark m-0">Pantry Status</h4>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="text-uppercase fw-bold text-muted" style="font-size: 10px; letter-spacing: 1px;">Olive Oil</span>
+                                    <span class="text-secondary-custom fw-bold small">Low</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-secondary-custom" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <span class="text-uppercase fw-bold text-muted" style="font-size: 10px; letter-spacing: 1px;">Brown Rice</span>
+                                    <span class="text-primary-custom fw-bold small">Stocked</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-primary-custom" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigationbar (d-md-none) -->
+    <nav class="d-md-none fixed-bottom bg-glass border-top border-light d-flex justify-content-around py-2 z-3 shadow-sm">
+        <a href="#" class="text-decoration-none bg-primary-custom text-white py-1 px-3 d-flex flex-column align-items-center justify-content-center rounded-pill shadow-sm">
+            <span class="material-symbols-outlined" style="font-size:20px;">home_work</span>
+            <span class="font-body fw-bold" style="font-size: 10px;">Hub</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
+            <span class="material-symbols-outlined">shopping_basket</span>
+            <span class="font-body fw-medium" style="font-size: 10px;">Groceries</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
+            <span class="material-symbols-outlined">menu_book</span>
+            <span class="font-body fw-medium" style="font-size: 10px;">Recipes</span>
+        </a>
+        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
+            <span class="material-symbols-outlined">explore</span>
+            <span class="font-body fw-medium" style="font-size: 10px;">Discover</span>
+        </a>
+    </nav>
+    
+    <!-- Floating Action Button Contextual to Hub -->
+    <a href="#" class="btn bg-primary-custom text-white position-fixed rounded-circle shadow-lg d-flex align-items-center justify-content-center hover-lift border-0 primary-gradient-hover" style="bottom: 5rem; right: 2rem; width: 64px; height: 64px; z-index: 1030;">
+        <span class="material-symbols-outlined fs-3 d-none d-md-block">auto_awesome</span>
+        <span class="material-symbols-outlined fs-3 d-md-none">add_shopping_cart</span>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
