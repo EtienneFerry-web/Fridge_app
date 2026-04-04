@@ -1,0 +1,22 @@
+{# templates/components/_button.html.twig #}
+{% set is_link = url is defined and url %}
+{% set tag = is_link ? 'a' : 'button' %}
+
+<{{ tag }}
+    {% if is_link %}
+        href="{{ url|default('#') }}"
+    {% else %}
+        type="{{ type|default('button') }}"
+    {% endif %}
+    class="btn {{ color is defined ? 'btn-' ~ color : 'btn-primary' }} {{ extra_classes|default('') }}"
+>
+    {% if icon is defined and icon %}
+        <span class="material-symbols-outlined{% if label is defined and label %} me-2{% endif %}">{{ icon }}</span>
+    {% endif %}
+    
+    {% if label is defined and label %}
+        {{ label }}
+    {% endif %}
+    
+    {% block button_content %}{% endblock %}
+</{{ tag }}>

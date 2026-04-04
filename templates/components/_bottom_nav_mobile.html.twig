@@ -1,0 +1,22 @@
+{# templates/components/_bottom_nav_mobile.html.twig #}
+<nav class="d-md-none fixed-bottom bg-glass border-top border-light d-flex justify-content-around py-2 z-3 shadow-sm">
+    <a href="{{ path('app_hub')|default('#') }}" class="text-decoration-none {% if active_page|default('hub') == 'hub' %}bg-primary-custom text-white py-1 px-3 rounded-pill shadow-sm{% else %}text-muted{% endif %} d-flex flex-column align-items-center justify-content-center">
+        <span class="material-symbols-outlined" {% if active_page|default('hub') == 'hub' %}style="font-size:20px;"{% endif %}>home_work</span>
+        <span class="font-body fw-{% if active_page|default('hub') == 'hub' %}bold{% else %}medium{% endif %}" style="font-size: 10px;">Hub</span>
+    </a>
+    
+    <a href="{{ path('app_grocery_list')|default('#') }}" class="text-decoration-none {% if active_page|default('') == 'groceries' %}bg-primary-custom text-white py-1 px-3 rounded-pill shadow-sm{% else %}text-muted{% endif %} d-flex flex-column align-items-center justify-content-center">
+        <span class="material-symbols-outlined" {% if active_page|default('') == 'groceries' %}style="font-size:20px;"{% endif %}>shopping_basket</span>
+        <span class="font-body fw-{% if active_page|default('') == 'groceries' %}bold{% else %}medium{% endif %}" style="font-size: 10px;">Groceries</span>
+    </a>
+    
+    <a href="{{ path('app_discovery')|default('#') }}" class="text-decoration-none {% if active_page|default('') == 'discovery' %}bg-primary-custom text-white py-2 px-2 rounded-circle shadow-sm{% else %}text-muted{% endif %} d-flex flex-column align-items-center justify-content-center">
+        <span class="material-symbols-outlined" {% if active_page|default('') == 'discovery' %}style="font-size:24px;"{% endif %}>explore</span>
+        <span class="font-body fw-{% if active_page|default('') == 'discovery' %}bold{% else %}medium{% endif %}" style="font-size: 10px;">Discover</span>
+    </a>
+    
+    <a href="{{ path('app_profile')|default('#') }}" class="text-decoration-none {% if active_page|default('') == 'profile' %}bg-primary-custom text-white py-1 px-3 rounded-pill shadow-sm{% else %}text-muted{% endif %} d-flex flex-column align-items-center justify-content-center">
+        <span class="material-symbols-outlined" {% if active_page|default('') == 'profile' %}style="font-size:20px;"{% endif %}>person</span>
+        <span class="font-body fw-{% if active_page|default('') == 'profile' %}bold{% else %}medium{% endif %}" style="font-size: 10px;">Profile</span>
+    </a>
+</nav>
