@@ -1,333 +1,1164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Organic Curator - Household Hub</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body class="bg-surface font-body text-on-surface pb-5 pb-md-0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D6A4F;
+            --primary-light: #52B788;
+            --primary-xlight: #D8F3DC;
+            --secondary: #E76F51;
+            --secondary-light: #FFDDD2;
+            --surface: #F8FAF7;
+            --surface-low: #EEF4EC;
+            --surface-lowest: #FFFFFF;
+            --on-surface: #1B2A22;
+            --on-surface-variant: #5C7268;
+            --border: #D9E8D5;
+            --sidebar-w: 240px;
+            --grocery-w: 280px;
+        }
 
-    <!-- Mobile Top Header (d-md-none) -->
-    <header class="sticky-top bg-glass d-md-none z-3 border-bottom border-light">
-        <div class="container px-4 py-3 d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-2">
-                <span class="material-symbols-outlined text-primary-custom fs-4">eco</span>
-                <h1 class="font-headline fw-bold m-0 fs-5 text-primary-custom">The Organic Curator</h1>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--surface);
+            color: var(--on-surface);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ── LAYOUT ─────────────────────────────── */
+        .app-shell {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ── SIDEBAR ─────────────────────────────── */
+        .sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            background: var(--surface-lowest);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 16px;
+            overflow-y: auto;
+        }
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            margin-bottom: 32px;
+        }
+        .sidebar-logo .icon {
+            width: 36px; height: 36px;
+            background: var(--primary-xlight);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+        }
+        .sidebar-logo h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 14px;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+        .sidebar-logo p {
+            font-size: 9px;
+            color: var(--on-surface-variant);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: 600;
+        }
+        nav a {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            transition: all .2s;
+        }
+        nav a:hover { background: var(--surface-low); color: var(--primary); }
+        nav a.active { background: var(--primary-xlight); color: var(--primary); font-weight: 700; }
+        nav a .material-symbols-outlined { font-size: 20px; }
+
+        .btn-add-plan {
+            margin-top: auto;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            cursor: pointer;
+            transition: all .2s;
+        }
+        .btn-add-plan:hover { background: var(--primary-light); }
+
+        /* ── MAIN ─────────────────────────────── */
+        .main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .topbar {
+            background: var(--surface-lowest);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        .search-box {
+            display: flex; align-items: center; gap: 8px;
+            background: var(--surface-low);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 14px;
+            width: 280px;
+        }
+        .search-box input {
+            border: none; background: transparent; outline: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px; color: var(--on-surface);
+            width: 100%;
+        }
+        .topbar-actions {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .topbar-actions .material-symbols-outlined {
+            color: var(--primary); cursor: pointer; font-size: 22px;
+            transition: opacity .2s;
+        }
+        .topbar-actions .material-symbols-outlined:hover { opacity: .7; }
+        .avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-light);
+            overflow: hidden;
+        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ── CONTENT AREA ─────────────────────────────── */
+        .content-area {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 28px 24px;
+        }
+
+        /* ── PAGE HEADER ─────────────────────────────── */
+        .page-header {
+            display: flex; align-items: flex-end; justify-content: space-between;
+            margin-bottom: 28px;
+        }
+        .page-header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: var(--on-surface);
+            margin: 0 0 4px;
+        }
+        .page-header p {
+            color: var(--on-surface-variant);
+            font-size: 13px;
+            margin: 0;
+        }
+        .week-controls {
+            display: flex; gap: 6px;
+        }
+        .btn-week {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            border: 1px solid var(--border);
+        }
+        .btn-week.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .btn-week:not(.active) {
+            background: white;
+            color: var(--on-surface-variant);
+        }
+        .btn-week:not(.active):hover {
+            background: var(--surface-low);
+        }
+
+        /* ── WEEKLY TABLE ─────────────────────────────── */
+        .week-table-wrapper {
+            background: var(--surface-lowest);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .week-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .week-table thead th {
+            padding: 12px 10px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            background: var(--primary-xlight);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .week-table tbody td {
+            vertical-align: top;
+            padding: 10px;
+            border-right: 1px solid var(--border);
+            min-height: 200px;
+        }
+        .week-table tbody td:last-child { border-right: none; }
+
+        /* ── MEAL CARD ─────────────────────────────── */
+        .meal-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 8px;
+            cursor: grab;
+            transition: transform .15s, box-shadow .15s;
+            position: relative;
+        }
+        .meal-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45,106,79,.12);
+        }
+        .meal-card img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 7px;
+            margin-bottom: 7px;
+        }
+        .meal-card .meal-tag {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            padding: 2px 7px;
+            border-radius: 20px;
+            margin-bottom: 5px;
+        }
+        .tag-lunch { background: #D8F3DC; color: #1B4332; }
+        .tag-dinner { background: #FFE8E2; color: #C1440E; }
+        .tag-breakfast { background: #FFF3CD; color: #856404; }
+        .tag-pantry {
+            position: absolute;
+            top: 8px; right: 8px;
+            background: rgba(82,183,136,.85);
+            color: white;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 6px;
+            display: flex; align-items: center; gap: 3px;
+        }
+        .tag-pantry .material-symbols-outlined { font-size: 11px; }
+        .meal-card h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 13px;
+            margin: 0 0 3px;
+            color: var(--on-surface);
+        }
+        .meal-card .meal-time {
+            font-size: 11px;
+            color: var(--on-surface-variant);
+        }
+        .meal-card-special {
+            border-color: rgba(231,111,81,.3);
+            background: rgba(231,111,81,.05);
+        }
+        .badge-event {
+            position: absolute;
+            bottom: 8px; left: 8px;
+            background: var(--secondary);
+            color: white;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 5px;
+        }
+        .flexible-slot {
+            height: 80px;
+            border: 1.5px dashed var(--border);
+            border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--on-surface-variant);
+            font-size: 11px;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        /* ── ADD MEAL BUTTON ─────────────────────────────── */
+        .btn-add-meal {
+            width: 100%;
+            padding: 8px;
+            background: transparent;
+            border: 1.5px dashed #B7D5C1;
+            border-radius: 9px;
+            color: var(--primary-light);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+            cursor: pointer;
+            transition: all .2s;
+            margin-top: 4px;
+        }
+        .btn-add-meal:hover {
+            background: var(--primary-xlight);
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+        .btn-add-meal .material-symbols-outlined { font-size: 16px; }
+
+        /* ── MODAL ─────────────────────────────── */
+        .modal-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.45);
+            z-index: 1000;
+            align-items: center; justify-content: center;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal-box {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            width: 360px;
+            max-width: 90vw;
+            box-shadow: 0 20px 60px rgba(0,0,0,.2);
+        }
+        .modal-box h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            margin: 0 0 20px;
+        }
+        .modal-box input, .modal-box select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color .2s;
+        }
+        .modal-box input:focus, .modal-box select:focus { border-color: var(--primary); }
+        .modal-actions { display: flex; gap: 10px; margin-top: 4px; }
+        .btn-confirm {
+            flex: 1; padding: 10px;
+            background: var(--primary); color: white;
+            border: none; border-radius: 8px;
+            font-weight: 700; font-size: 13px;
+            cursor: pointer; transition: background .2s;
+        }
+        .btn-confirm:hover { background: var(--primary-light); }
+        .btn-cancel {
+            padding: 10px 16px;
+            background: var(--surface-low); color: var(--on-surface-variant);
+            border: 1px solid var(--border); border-radius: 8px;
+            font-size: 13px; cursor: pointer;
+        }
+
+        /* ── ACTIVITY ─────────────────────────────── */
+        .activity-section {
+            background: var(--surface-lowest);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .activity-section h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px; margin: 0 0 16px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .activity-item {
+            display: flex; gap: 12px; align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .activity-item:last-child { border-bottom: none; }
+        .act-avatar {
+            position: relative; flex-shrink: 0;
+        }
+        .act-avatar img, .act-avatar .av-initials {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 1px 4px rgba(0,0,0,.1);
+            object-fit: cover;
+        }
+        .av-initials {
+            display: flex; align-items: center; justify-content: center;
+            background: #FFE8E2; color: #C1440E;
+            font-weight: 700; font-size: 14px;
+        }
+        .act-badge {
+            position: absolute; bottom: -2px; right: -2px;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .act-badge .material-symbols-outlined { font-size: 9px; color: white; }
+        .act-text p { margin: 0; font-size: 12px; }
+        .act-text .name { font-weight: 700; }
+        .act-text .detail { color: var(--on-surface-variant); line-height: 1.4; }
+        .act-text .time { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: #aaa; }
+        .highlight-secondary { color: var(--secondary); font-weight: 600; }
+        .highlight-primary { color: var(--primary); font-weight: 600; }
+
+        /* ── PANTRY ─────────────────────────────── */
+        .pantry-section {
+            background: var(--surface-lowest);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+        .pantry-section h4 {
+            font-size: 13px; font-weight: 700;
+            margin: 0 0 14px;
+            display: flex; align-items: center; gap: 7px;
+        }
+        .pantry-item { margin-bottom: 12px; }
+        .pantry-label {
+            display: flex; justify-content: space-between;
+            font-size: 10px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .8px;
+            color: var(--on-surface-variant);
+            margin-bottom: 4px;
+        }
+        .pantry-label .status-low { color: var(--secondary); }
+        .pantry-label .status-ok { color: var(--primary); }
+        .progress-bar-wrap {
+            height: 5px; background: var(--surface-low); border-radius: 4px; overflow: hidden;
+        }
+        .progress-fill { height: 100%; border-radius: 4px; }
+
+        /* ── GROCERY SIDEBAR ─────────────────────────────── */
+        .grocery-sidebar {
+            width: var(--grocery-w);
+            flex-shrink: 0;
+            border-left: 1px solid var(--border);
+            background: var(--surface-lowest);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .grocery-header {
+            padding: 20px 18px 14px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .grocery-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px; margin: 0 0 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .grocery-header h2 .material-symbols-outlined {
+            color: var(--primary); font-size: 20px;
+        }
+        .grocery-add-row {
+            display: flex; gap: 6px;
+        }
+        .grocery-add-row input {
+            flex: 1; padding: 7px 10px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px; outline: none;
+            transition: border-color .2s;
+        }
+        .grocery-add-row input:focus { border-color: var(--primary); }
+        .btn-grocery-add {
+            background: var(--primary);
+            color: white; border: none;
+            border-radius: 7px; padding: 7px 10px;
+            cursor: pointer; display: flex; align-items: center;
+            transition: background .2s;
+        }
+        .btn-grocery-add:hover { background: var(--primary-light); }
+        .btn-grocery-add .material-symbols-outlined { font-size: 18px; }
+
+        .grocery-categories {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px 18px;
+        }
+        .grocery-cat-label {
+            font-size: 9px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--primary-light);
+            margin: 14px 0 8px;
+        }
+        .grocery-cat-label:first-child { margin-top: 0; }
+        .grocery-item {
+            display: flex; align-items: center; gap: 9px;
+            padding: 7px 0;
+            border-bottom: 1px solid var(--surface-low);
+            cursor: pointer;
+            transition: opacity .15s;
+        }
+        .grocery-item:last-child { border-bottom: none; }
+        .grocery-item.checked { opacity: .45; }
+        .grocery-item.checked .gi-name { text-decoration: line-through; }
+        .gi-check {
+            width: 18px; height: 18px;
+            border-radius: 5px;
+            border: 1.5px solid var(--border);
+            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .15s;
+        }
+        .grocery-item.checked .gi-check {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        .gi-check .material-symbols-outlined { font-size: 13px; color: white; display: none; }
+        .grocery-item.checked .gi-check .material-symbols-outlined { display: block; }
+        .gi-name { font-size: 12px; font-weight: 500; flex: 1; }
+        .gi-qty { font-size: 11px; color: var(--on-surface-variant); }
+        .gi-del {
+            opacity: 0;
+            background: none; border: none;
+            color: #ccc; cursor: pointer;
+            font-size: 16px; padding: 0;
+            line-height: 1;
+            transition: color .15s;
+        }
+        .grocery-item:hover .gi-del { opacity: 1; }
+        .gi-del:hover { color: var(--secondary); }
+
+        .grocery-footer {
+            padding: 14px 18px;
+            border-top: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .grocery-footer .progress-bar-wrap { height: 6px; margin-bottom: 6px; }
+        .grocery-footer p {
+            font-size: 11px; color: var(--on-surface-variant); margin: 0;
+        }
+
+        /* ── SCROLLBARS ─────────────────────────────── */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        /* ── MOBILE ADAPTATION ─────────────────────────────── */
+        @media (max-width: 900px) {
+            .sidebar { display: none; }
+            .grocery-sidebar { display: none; }
+
+            /* Make the top row content flex column */
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .content-area .main-content {
+                padding: 16px;
+            }
+
+            /* Stack the schedule table */
+            .week-table thead {
+                display: none; /* Hide header row */
+            }
+            .week-table tbody, .week-table tr, .week-table td {
+                display: block;
+                width: 100%;
+            }
+            .week-table-wrapper {
+                border: none;
+                background: transparent;
+                margin-bottom: 16px;
+            }
+            .week-table tbody td {
+                background: var(--surface-lowest);
+                border: 1px solid var(--border);
+                border-radius: 14px;
+                padding: 16px;
+                margin-bottom: 16px;
+                min-height: auto;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+            .week-table tbody td:last-child {
+                border-right: 1px solid var(--border);
+                margin-bottom: 0;
+            }
+            
+            /* Add Day pseudo-labels and flex wrap inside TDs */
+            .week-table tbody td::before {
+                font-size: 11px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: var(--primary);
+                margin-bottom: 12px;
+                display: block;
+            }
+            
+            #col-0::before { content: "Lundi"; }
+            #col-1::before { content: "Mardi"; }
+            #col-2::before { content: "Mercredi"; }
+            #col-3::before { content: "Jeudi"; }
+            #col-4::before { content: "Vendredi"; }
+            #col-5::before { content: "Samedi"; }
+            #col-6::before { content: "Dimanche"; }
+            
+            /* Responsive bottom row for family activity & pantry */
+            .main-content > div[style*="display:flex;"] {
+                flex-direction: column !important;
+                gap: 16px !important;
+            }
+            .activity-section, .pantry-section {
+                flex: none !important;
+                width: 100%;
+                margin-top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="icon"><span class="material-symbols-outlined">eco</span></div>
+            <div>
+                <h1>The Living Larder</h1>
+                <p>Greenwood Household</p>
             </div>
-            <div class="d-flex align-items-center gap-3">
-                <div class="rounded-circle overflow-hidden border border-success border-2" style="width: 36px; height: 36px;">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeDpn2UmQnGOeUMw4U1xuFxM9k46ktebnmqi-bhl1hpx9eazd2RdOx84kIrG77WOnNmoKUNgOOmmaiEc4fw_-SxLPEaOp35-DNNJjsBycHaZkSuRd_wzdMS-uxSgQiz5RfvTydvGfY1nszm-fxL_APbZfvhaWZf9NubbKv9dbbU739Gw8wsiIuikmpHmWPmvfY40MVbgpQzNHnmWvL2uDEhY8vMhmpPlagPM5P2Sff33U7DIjxhakZwtUy5HFcdIXqBePBFvRdAx4" alt="Profile" class="w-100 h-100 object-fit-cover">
+        </div>
+        <nav>
+            <a href="#" class="active">
+                <span class="material-symbols-outlined">grid_view</span> Hub
+            </a>
+            <a href="#">
+                <span class="material-symbols-outlined">shopping_basket</span> Grocery List
+            </a>
+            <a href="#">
+                <span class="material-symbols-outlined">person_2</span> Personal Space
+            </a>
+            <a href="#">
+                <span class="material-symbols-outlined">explore</span> Discovery
+            </a>
+            <a href="#">
+                <span class="material-symbols-outlined">settings</span> Admin
+            </a>
+        </nav>
+        <button class="btn-add-plan" onclick="openModal(null)">
+            <span class="material-symbols-outlined">add</span> Ajouter au plan
+        </button>
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <div class="main-area">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="search-box">
+                <span class="material-symbols-outlined" style="color:var(--on-surface-variant);font-size:18px;">search</span>
+                <input type="text" placeholder="Rechercher des favoris...">
+            </div>
+            <div class="topbar-actions">
+                <span class="material-symbols-outlined">group</span>
+                <span class="material-symbols-outlined">notifications</span>
+                <div class="avatar">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeDpn2UmQnGOeUMw4U1xuFxM9k46ktebnmqi-bhl1hpx9eazd2RdOx84kIrG77WOnNmoKUNgOOmmaiEc4fw_-SxLPEaOp35-DNNJjsBycHaZkSuRd_wzdMS-uxSgQiz5RfvTydvGfY1nszm-fxL_APbZfvhaWZf9NubbKv9dbbU739Gw8wsiIuikmpHmWPmvfY40MVbgpQzNHnmWvL2uDEhY8vMhmpPlagPM5P2Sff33U7DIjxhakZwtUy5HFcdIXqBePBFvRdAx4" alt="Profile">
                 </div>
             </div>
         </div>
-    </header>
 
-    <div class="d-flex">
-        
-        <!-- Desktop Sidebar -->
-        <aside class="desktop-sidebar bg-surface-low d-none d-md-flex flex-column p-4">
-            <div class="d-flex flex-column align-items-center mb-5 pt-3 text-center">
-                <div class="rounded-3 bg-primary-custom bg-opacity-10 text-primary-custom d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px;">
-                    <span class="material-symbols-outlined">grid_view</span>
-                </div>
-                <h2 class="fs-5 fw-bolder text-primary-custom font-headline mb-0">The Living Larder</h2>
-                <p class="text-uppercase tracking-widest text-muted fw-bold" style="font-size: 10px; letter-spacing: 2px;">Greenwood Household</p>
-            </div>
-            <nav class="d-flex flex-column gap-2 flex-grow-1 font-headline">
-                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-primary-custom bg-surface-lowest shadow-sm px-4 py-3 rounded-pill">
-                    <span class="material-symbols-outlined">grid_view</span> <span class="fw-bold">Hub</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
-                    <span class="material-symbols-outlined">shopping_basket</span> <span class="fw-medium">Grocery List</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
-                    <span class="material-symbols-outlined">person_2</span> <span class="fw-medium">Personal Space</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
-                    <span class="material-symbols-outlined">explore</span> <span class="fw-medium">Discovery</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-muted px-4 py-3 rounded-pill hover-bg-white transition">
-                    <span class="material-symbols-outlined">settings</span> <span class="fw-medium">Admin</span>
-                </a>
-            </nav>
-            <button class="btn bg-secondary-custom text-white rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 mt-auto shadow">
-                <span class="material-symbols-outlined">add</span> Add to Plan
-            </button>
-        </aside>
+        <!-- Content Area -->
+        <div class="content-area">
+            <div class="main-content">
 
-        <!-- Main Content -->
-        <main class="flex-grow-1 desktop-main-content p-4 p-md-5">
-
-            <!-- Desktop Search Header -->
-            <header class="d-none d-md-flex justify-content-between align-items-center mb-5 bg-white p-3 rounded-pill shadow-sm sticky-top z-3" style="top: 20px;">
-                <div class="d-flex align-items-center gap-3 bg-light rounded-pill px-4 py-2 flex-grow-1 max-w-md me-4 border border-light">
-                    <span class="material-symbols-outlined text-muted">search</span>
-                    <input type="text" class="form-control bg-transparent border-0 shadow-none px-0" placeholder="Search family favorites...">
-                </div>
-                <div class="d-flex align-items-center gap-4">
-                    <span class="material-symbols-outlined text-primary-custom cursor-pointer hover-opacity">group</span>
-                    <span class="material-symbols-outlined text-primary-custom cursor-pointer hover-opacity">notifications</span>
-                    <div class="rounded-circle overflow-hidden border border-success border-2 shadow-sm" style="width: 44px; height: 44px;">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeDpn2UmQnGOeUMw4U1xuFxM9k46ktebnmqi-bhl1hpx9eazd2RdOx84kIrG77WOnNmoKUNgOOmmaiEc4fw_-SxLPEaOp35-DNNJjsBycHaZkSuRd_wzdMS-uxSgQiz5RfvTydvGfY1nszm-fxL_APbZfvhaWZf9NubbKv9dbbU739Gw8wsiIuikmpHmWPmvfY40MVbgpQzNHnmWvL2uDEhY8vMhmpPlagPM5P2Sff33U7DIjxhakZwtUy5HFcdIXqBePBFvRdAx4" class="w-100 h-100 object-fit-cover" alt="Profile Desktop">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div>
+                        <h1>Weekly Harvest Hub</h1>
+                        <p>Planification du 12 au 18 juin</p>
+                    </div>
+                    <div class="week-controls">
+                        <button class="btn-week active">Semaine actuelle</button>
+                        <button class="btn-week">Semaine suivante</button>
                     </div>
                 </div>
-            </header>
 
-            <!-- Main Hub Header -->
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
-                <div>
-                    <h1 class="display-5 font-headline fw-bolder text-dark m-0 mb-1">Weekly Harvest Hub</h1>
-                    <p class="text-on-surface-variant font-body mb-0">Planning sustenance for June 12 — June 18</p>
+                <!-- ── WEEKLY TABLE ── -->
+                <div class="week-table-wrapper">
+                    <table class="week-table">
+                        <thead>
+                            <tr>
+                                <th>Lundi</th>
+                                <th>Mardi</th>
+                                <th>Mercredi</th>
+                                <th>Jeudi</th>
+                                <th>Vendredi</th>
+                                <th>Samedi</th>
+                                <th>Dimanche</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!-- LUNDI -->
+                                <td id="col-0">
+                                    <div class="meal-card">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjHagRgKx9KXhbNnR6w7AhULVmcOc3dB4vu_AW2tjY8dW8PR3tzHI4oZIHHnEgmMWPT1LfRws-Mvv8rw1QNYoTCb_yCEyddb_Fe_doNZfO5F8RjMIX24tiU598G-HC1YVCDBC9HLwlNa8N1FU5HhPy5FpHRYC7nIijNLpbROUCYk5yN2QRLYU0uP1uy7IYMWjdvZHVToH0LpLduQr-0Emm_NwhRh_arWHy6QX1tzZDODMtBzo45bPv3ZRdeua1ZLFvo7O1Ct9o-TU" alt="Bowl">
+                                        <span class="tag-pantry"><span class="material-symbols-outlined">shopping_basket</span> PANTRY</span>
+                                        <span class="meal-tag tag-lunch">Déjeuner</span>
+                                        <h4>Harvest Quinoa Bowl</h4>
+                                        <p class="meal-time">15 mins</p>
+                                    </div>
+                                    <div class="meal-card">
+                                        <span class="meal-tag tag-dinner">Dîner</span>
+                                        <h4>Lentil & Kale Soup</h4>
+                                        <p class="meal-time">25 mins</p>
+                                    </div>
+                                    <button class="btn-add-meal" onclick="openModal(0)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+
+                                <!-- MARDI -->
+                                <td id="col-1">
+                                    <div class="meal-card">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNvyWcXhl45HapVj0eEnmgOE71HhTGKQOiklk4cAGQsYgSvPGe5dkOKtGQvoNXyAqfd-dfxRNroFsqRdRXSOAgFx_33bLDTdK_Rda4MnA_OYgLZmVw-dsAMzs0jiMRA1w__SlQdPcNOvc8sHojnXr-eSLcbdt4J1_oOZz1PKyRuMCt3_NBkf0RpGwbC16I3zmuX_Z8kThFxKXqISiPmYVzjDcZjA2I70JaBGHJaREaRObk5N_c0gXQxZNjcJRsduqI2Fi6N9hGoCfC" alt="Veg">
+                                        <span class="meal-tag tag-dinner">Dîner</span>
+                                        <h4>Roasted Root Medley</h4>
+                                    </div>
+                                    <button class="btn-add-meal" onclick="openModal(1)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+
+                                <!-- MERCREDI -->
+                                <td id="col-2">
+                                    <div class="meal-card">
+                                        <span class="meal-tag tag-dinner">Dîner</span>
+                                        <h4>Wild Mushroom Risotto</h4>
+                                    </div>
+                                    <button class="btn-add-meal" onclick="openModal(2)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+
+                                <!-- JEUDI -->
+                                <td id="col-3">
+                                    <div class="flexible-slot">Planification flexible</div>
+                                    <button class="btn-add-meal" onclick="openModal(3)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+
+                                <!-- VENDREDI -->
+                                <td id="col-4">
+                                    <div class="meal-card meal-card-special">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvLhi69MdULfdpNITqmjMdi8v2pcU__Ym2MHklART9W-kQMNbCfGxvDDSZQDo9WIctJwYe7K8st4pGgm3OlyFd-YHW8OKbquV5HdtvuSqAAVmQHBf3IeSMHYDfbxgjG6KmrX5gqVLwm16ckQ54DmfUIWdutLlmBQQRO85mp8GG-PyUvC2U61mJjyWatuxhLSEtIWbQQxplnMilc1pfEzJJJDJB_U8JHbFyLDMrmYT70AAjQ1wy2xkcYPTJ5BpxcUqy9auq-nNvbgw" alt="Pizza">
+                                        <span class="badge-event">PIZZA NIGHT</span>
+                                        <span class="meal-tag tag-dinner">Dîner</span>
+                                        <h4>Sourdough Margherita</h4>
+                                    </div>
+                                    <button class="btn-add-meal" onclick="openModal(4)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+
+                                <!-- SAMEDI -->
+                                <td id="col-5">
+                                    <div class="flexible-slot">Non planifié</div>
+                                    <button class="btn-add-meal" onclick="openModal(5)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+
+                                <!-- DIMANCHE -->
+                                <td id="col-6">
+                                    <div class="flexible-slot">Non planifié</div>
+                                    <button class="btn-add-meal" onclick="openModal(6)">
+                                        <span class="material-symbols-outlined">add_circle</span> Ajouter
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- Week Controls -->
-                <div class="d-flex bg-surface-low rounded-pill p-1 align-items-center shadow-sm border border-light" style="width: fit-content;">
-                    <button class="btn bg-white text-primary-custom rounded-pill px-4 py-2 fw-bold shadow-sm font-body border-0 btn-sm">Current Week</button>
-                    <button class="btn btn-link text-muted text-decoration-none rounded-pill px-4 py-2 fw-semibold font-body btn-sm shadow-none hover-bg-light">Next Week</button>
-                </div>
-            </div>
 
-            <div class="row g-5">
-                
-                <!-- Left Column: Weekly Grid -->
-                <div class="col-lg-8 col-xl-9">
-                    
-                    <div class="row g-4 mb-5">
-                        <!-- Monday -->
-                        <div class="col-sm-6 col-lg-6 col-xl-3">
-                            <div class="bg-surface-low rounded-4 p-4 h-100">
-                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Monday</h3>
-                                
-                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light mb-3 hover-lift cursor-grab">
-                                    <div class="rounded-3 overflow-hidden position-relative mb-2" style="height: 120px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjHagRgKx9KXhbNnR6w7AhULVmcOc3dB4vu_AW2tjY8dW8PR3tzHI4oZIHHnEgmMWPT1LfRws-Mvv8rw1QNYoTCb_yCEyddb_Fe_doNZfO5F8RjMIX24tiU598G-HC1YVCDBC9HLwlNa8N1FU5HhPy5FpHRYC7nIijNLpbROUCYk5yN2QRLYU0uP1uy7IYMWjdvZHVToH0LpLduQr-0Emm_NwhRh_arWHy6QX1tzZDODMtBzo45bPv3ZRdeua1ZLFvo7O1Ct9o-TU" class="w-100 h-100 object-fit-cover" alt="Bowl">
-                                        <span class="position-absolute top-0 end-0 m-2 badge bg-success bg-opacity-75 d-flex align-items-center gap-1 shadow-sm"><span class="material-symbols-outlined" style="font-size:12px;">shopping_basket</span> PANTRY</span>
-                                    </div>
-                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill fw-bold text-uppercase mb-2" style="font-size: 10px;">Lunch</span>
-                                    <h4 class="font-headline fs-6 fw-bold mb-1">Harvest Quinoa Bowl</h4>
-                                    <p class="text-muted small mb-0 fw-medium">15 mins</p>
-                                </div>
-                                
-                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light hover-lift cursor-grab">
-                                    <h4 class="font-headline fs-6 fw-bold mb-1">Lentil & Kale Soup</h4>
-                                    <p class="text-muted small mb-0 fw-medium">Ready in 25 mins</p>
+                <!-- ── BOTTOM ROW: Activity + Pantry ── -->
+                <div style="display:flex;gap:16px;">
+                    <!-- Family Activity -->
+                    <div class="activity-section" style="flex:1;">
+                        <h3>
+                            Family Likes
+                            <span class="material-symbols-outlined" style="color:var(--secondary);font-size:20px;">groups</span>
+                        </h3>
+                        <div class="activity-item">
+                            <div class="act-avatar">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHYKR2dTGww3njsB7OOQT0J4l3MR5sejj1ll4QCkh7h5VEokFIXsdlQFaEhy-Y5DaGpzmPwZtziXrdZWgS2exg14SIHc2Jdgxqk9YPepUqLjiCKq1M2mlU2GunRnhIjp-1LK-fREjHz9yHej5yUjefEf_OlbmH0wWxtdfU5Kad4rtLrUttZTEXH0o9zFDhVfyCvmTmqDvMXkCvTA8YwSEjpD6OcyWvEldXZQFP8Xrq4RV8eHHBNBmrWDWSaazFjzEEAV8hDQLv53x" alt="Leo">
+                                <div class="act-badge" style="background:var(--secondary);">
+                                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">favorite</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Tuesday -->
-                        <div class="col-sm-6 col-lg-6 col-xl-3">
-                            <div class="bg-surface-low rounded-4 p-4 h-100 d-flex flex-column">
-                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Tuesday</h3>
-                                
-                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light mb-3 hover-lift cursor-grab flex-shrink-0">
-                                    <div class="rounded-3 overflow-hidden position-relative mb-2" style="height: 120px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNvyWcXhl45HapVj0eEnmgOE71HhTGKQOiklk4cAGQsYgSvPGe5dkOKtGQvoNXyAqfd-dfxRNroFsqRdRXSOAgFx_33bLDTdK_Rda4MnA_OYgLZmVw-dsAMzs0jiMRA1w__SlQdPcNOvc8sHojnXr-eSLcbdt4J1_oOZz1PKyRuMCt3_NBkf0RpGwbC16I3zmuX_Z8kThFxKXqISiPmYVzjDcZjA2I70JaBGHJaREaRObk5N_c0gXQxZNjcJRsduqI2Fi6N9hGoCfC" class="w-100 h-100 object-fit-cover" alt="Veg">
-                                    </div>
-                                    <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill fw-bold text-uppercase mb-2" style="font-size: 10px;">Dinner</span>
-                                    <h4 class="font-headline fs-6 fw-bold mb-1">Roasted Root Medley</h4>
-                                </div>
-                                
-                                <button class="btn btn-outline-secondary border-dashed w-100 mt-auto py-3 rounded-4 d-flex align-items-center justify-content-center gap-2 fw-bold text-uppercase" style="font-size: 12px; border-width: 2px;">
-                                    <span class="material-symbols-outlined fs-5">add_circle</span> Add Meal
-                                </button>
+                            <div class="act-text">
+                                <p class="name">Leo</p>
+                                <p class="detail">A voté pour <span class="highlight-secondary">Taco Tuesday</span></p>
+                                <p class="time">Il y a 2 heures</p>
                             </div>
                         </div>
-
-                        <!-- Wednesday -->
-                        <div class="col-sm-6 col-lg-6 col-xl-3">
-                            <div class="bg-surface-low rounded-4 p-4 h-100">
-                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Wednesday</h3>
-                                
-                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-light mb-3 hover-lift cursor-grab">
-                                    <h4 class="font-headline fs-6 fw-bold mb-2">Wild Mushroom Risotto</h4>
-                                    <div class="d-flex gap-1">
-                                        <div class="rounded-circle bg-danger" style="width:16px; height:16px; opacity:0.8;"></div>
-                                        <div class="rounded-circle bg-success" style="width:16px; height:16px; opacity:0.8;"></div>
-                                    </div>
+                        <div class="activity-item">
+                            <div class="act-avatar">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIC7o5FO6wenMqZGNVRl7p_GwQOvWLnKQ43iDq0pJHdPwOEEz30GPCusn1Mlgo3vdUR_vxTw2C1zv19MzR3sP1YpOQ-B67YNT9NhIygLXNehxbMdOghRDHx37F5-OAgA_VNmIjjzXIR0whBJs9kWKEjdWe1An22T44a2eeBmjBBj_r6XOu_X9dr8-Td6VxIv4WJhqEpJe1NfgCgKRrWDooSWTrLCNJJNQuewIkbEhfa5iIpDmFlG8r6e41TtG-oGk5iZU-HIc52prn" alt="Marcus">
+                                <div class="act-badge" style="background:var(--primary);">
+                                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">eco</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Thursday & Friday Plan -->
-                        <div class="col-sm-6 col-lg-6 col-xl-3">
-                            <div class="bg-surface-low rounded-4 p-4 h-100">
-                                <h3 class="font-headline fs-6 text-primary-custom fw-bolder text-uppercase tracking-wider mb-3">Thursday</h3>
-                                
-                                <div class="bg-surface-lowest bg-opacity-50 border-dashed border-2 rounded-4 p-4 d-flex align-items-center justify-content-center border-secondary text-muted mb-4" style="height: 120px;">
-                                    <span class="fs-6 fst-italic">Flexible Planning</span>
-                                </div>
-
-                                <h3 class="font-headline fs-6 text-secondary-custom fw-bolder text-uppercase tracking-wider mb-3">Friday Event</h3>
-                                <div class="bg-surface-lowest p-3 rounded-4 shadow-sm border border-danger border-opacity-25 hover-lift cursor-grab position-relative bg-danger bg-opacity-10">
-                                    <div class="rounded-3 overflow-hidden position-relative mb-2" style="height: 100px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvLhi69MdULfdpNITqmjMdi8v2pcU__Ym2MHklART9W-kQMNbCfGxvDDSZQDo9WIctJwYe7K8st4pGgm3OlyFd-YHW8OKbquV5HdtvuSqAAVmQHBf3IeSMHYDfbxgjG6KmrX5gqVLwm16ckQ54DmfUIWdutLlmBQQRO85mp8GG-PyUvC2U61mJjyWatuxhLSEtIWbQQxplnMilc1pfEzJJJDJB_U8JHbFyLDMrmYT70AAjQ1wy2xkcYPTJ5BpxcUqy9auq-nNvbgw" class="w-100 h-100 object-fit-cover" alt="Pizza">
-                                        <span class="position-absolute bottom-0 start-0 m-2 badge bg-danger text-white rounded fw-bold" style="font-size:9px;">PIZZA NIGHT</span>
-                                    </div>
-                                    <h4 class="font-headline fs-6 fw-bold text-danger mb-1">Sourdough Margherita</h4>
-                                </div>
+                            <div class="act-text">
+                                <p class="name">Marcus</p>
+                                <p class="detail">A partagé <span class="highlight-primary">Wild Honey Recipe</span></p>
+                                <p class="time">Il y a 5 heures</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Featured Recipe Banner -->
-                    <div class="row g-4 d-md-none d-lg-flex">
-                        <div class="col-lg-8">
-                            <div class="rounded-4 overflow-hidden position-relative h-100 shadow-sm hover-lift" style="min-height: 250px;">
-                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-YhUnIb_yZN7ZnuPBrH3muMmbzNaaB84oYxOopqArw30XusQuHtO9nIZW82wSP-jdofarPMy82iQAQpef4fISieZXJObqL6vkfG30Zv1p9TtJUyUBUkTVYlcC_s8mHfkSR_sRafLIPizXXCCbwMTYkL-8rrYRkbMeBIwzfd1udUKtQoDaQ1haqyYjNQuiMPRRjdD33suzE3TV2rtQmGyqL3vhQNMA_ggru14Gigdu0Z-bZTQEk31E7mwFng88VKnoaJxGNhxiKeHV" alt="Gnocchi" class="w-100 h-100 object-fit-cover position-absolute">
-                                <div class="position-absolute top-0 bottom-0 start-0 end-0 bg-dark bg-opacity-50" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);"></div>
-                                
-                                <div class="position-absolute bottom-0 start-0 p-4 p-md-5 w-100">
-                                    <span class="badge bg-secondary-custom text-white px-3 py-2 rounded-pill fw-bold mb-3">Seasonal Favorite</span>
-                                    <h2 class="display-6 font-headline fw-bold text-white mb-0 text-shadow" style="line-height: 1.1;">Hand-Rolled Gnocchi <br>with Sage Butter</h2>
+                        <div class="activity-item">
+                            <div class="act-avatar">
+                                <div class="av-initials">S</div>
+                                <div class="act-badge" style="background:var(--secondary);">
+                                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">add</span>
                                 </div>
-                                <button class="btn btn-light position-absolute top-0 end-0 m-4 rounded-circle bg-glass text-secondary-custom border-0 shadow d-flex p-3 hover-lift">
-                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
-                                </button>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="bg-primary-custom text-white rounded-4 p-4 p-md-5 h-100 d-flex flex-column justify-content-between shadow-sm primary-gradient-hover hover-lift">
-                                <div>
-                                    <span class="material-symbols-outlined fs-1 mb-3 text-warning">local_fire_department</span>
-                                    <h3 class="fs-4 font-headline fw-bold mb-3">Quick Prep</h3>
-                                    <p class="small text-white-50 fst-italic lh-lg">"The secret to a calm week is a deliberate Sunday morning."</p>
-                                </div>
-                                <button class="btn btn-light text-primary-custom rounded-pill py-3 fw-bold font-headline mt-4 shadow w-100">Auto-Fill Planner</button>
+                            <div class="act-text">
+                                <p class="name">Sarah</p>
+                                <p class="detail">A ajouté <span class="highlight-secondary">Avocats</span> aux courses</p>
+                                <p class="time">Hier</p>
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-                <!-- Right Column: Family Activity -->
-                <div class="col-lg-4 col-xl-3 space-y-4">
-                    
-                    <div class="bg-surface-low rounded-4 p-4 p-md-5 shadow-sm d-flex flex-column h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-5">
-                            <h3 class="fs-5 fw-bold font-headline text-dark m-0">Family Likes</h3>
-                            <span class="material-symbols-outlined text-secondary-custom">groups</span>
-                        </div>
-                        
-                        <!-- Activity Feed -->
-                        <div class="space-y-4 flex-grow-1">
-                            
-                            <!-- Activity 1 -->
-                            <div class="d-flex gap-3 align-items-start border-bottom border-light pb-3">
-                                <div class="position-relative">
-                                    <div class="rounded-circle overflow-hidden border border-white border-2 shadow-sm" style="width:48px; height:48px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHYKR2dTGww3njsB7OOQT0J4l3MR5sejj1ll4QCkh7h5VEokFIXsdlQFaEhy-Y5DaGpzmPwZtziXrdZWgS2exg14SIHc2Jdgxqk9YPepUqLjiCKq1M2mlU2GunRnhIjp-1LK-fREjHz9yHej5yUjefEf_OlbmH0wWxtdfU5Kad4rtLrUttZTEXH0o9zFDhVfyCvmTmqDvMXkCvTA8YwSEjpD6OcyWvEldXZQFP8Xrq4RV8eHHBNBmrWDWSaazFjzEEAV8hDQLv53x" alt="User" class="w-100 h-100 object-fit-cover">
-                                    </div>
-                                    <div class="position-absolute bottom-0 end-0 bg-secondary-custom rounded-circle border border-white d-flex align-items-center justify-content-center p-1" style="transform: translate(25%, 25%);">
-                                        <span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'FILL' 1;">favorite</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="fw-bold mb-0 text-dark small">Leo</p>
-                                    <p class="small text-muted mb-1 lh-sm">Voted for <span class="text-secondary-custom fw-semibold">Taco Tuesday</span></p>
-                                    <span class="text-uppercase fw-bold text-black-50" style="font-size: 9px; letter-spacing: 1px;">2 hours ago</span>
-                                </div>
+                    <!-- Pantry Status -->
+                    <div class="pantry-section" style="flex:0 0 220px;">
+                        <h4>
+                            <span class="material-symbols-outlined" style="color:var(--primary);font-size:18px;">inventory_2</span>
+                            Statut du garde-manger
+                        </h4>
+                        <div class="pantry-item">
+                            <div class="pantry-label">
+                                <span>Huile d'olive</span>
+                                <span class="status-low">Bas</span>
                             </div>
-                            
-                            <!-- Activity 2 -->
-                            <div class="d-flex gap-3 align-items-start border-bottom border-light pb-3">
-                                <div class="position-relative">
-                                    <div class="rounded-circle overflow-hidden border border-white border-2 shadow-sm" style="width:48px; height:48px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIC7o5FO6wenMqZGNVRl7p_GwQOvWLnKQ43iDq0pJHdPwOEEz30GPCusn1Mlgo3vdUR_vxTw2C1zv19MzR3sP1YpOQ-B67YNT9NhIygLXNehxbMdOghRDHx37F5-OAgA_VNmIjjzXIR0whBJs9kWKEjdWe1An22T44a2eeBmjBBj_r6XOu_X9dr8-Td6VxIv4WJhqEpJe1NfgCgKRrWDooSWTrLCNJJNQuewIkbEhfa5iIpDmFlG8r6e41TtG-oGk5iZU-HIc52prn" alt="User" class="w-100 h-100 object-fit-cover">
-                                    </div>
-                                    <div class="position-absolute bottom-0 end-0 bg-primary-custom rounded-circle border border-white d-flex align-items-center justify-content-center p-1" style="transform: translate(25%, 25%);">
-                                        <span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'FILL' 1;">eco</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="fw-bold mb-0 text-dark small">Marcus</p>
-                                    <p class="small text-muted mb-1 lh-sm">Shared <span class="text-primary-custom fw-semibold">Wild Honey Recipe</span></p>
-                                    <span class="text-uppercase fw-bold text-black-50" style="font-size: 9px; letter-spacing: 1px;">5 hours ago</span>
-                                </div>
-                            </div>
-
-                            <!-- Activity 3 -->
-                            <div class="d-flex gap-3 align-items-start pb-2">
-                                <div class="position-relative">
-                                    <div class="rounded-circle border border-white border-2 shadow-sm bg-danger bg-opacity-10 text-danger-emphasis d-flex align-items-center justify-content-center fw-bold font-headline" style="width:48px; height:48px;">
-                                        S
-                                    </div>
-                                    <div class="position-absolute bottom-0 end-0 bg-secondary-custom rounded-circle border border-white d-flex align-items-center justify-content-center p-1" style="transform: translate(25%, 25%);">
-                                        <span class="material-symbols-outlined text-white" style="font-size: 10px; font-variation-settings: 'FILL' 1;">add</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="fw-bold mb-0 text-dark small">Sarah</p>
-                                    <p class="small text-muted mb-1 lh-sm">Added <span class="text-secondary-custom fw-semibold">Avocados</span> to Groceries</p>
-                                    <span class="text-uppercase fw-bold text-black-50" style="font-size: 9px; letter-spacing: 1px;">Yesterday</span>
-                                </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-fill" style="width:15%;background:var(--secondary);"></div>
                             </div>
                         </div>
-
-                        <!-- Mini Inventory Tracker -->
-                        <div class="mt-5 bg-surface-lowest p-4 rounded-4 shadow-sm border border-light">
-                            <div class="d-flex align-items-center gap-2 mb-3">
-                                <span class="material-symbols-outlined text-primary-custom fs-5">inventory_2</span>
-                                <h4 class="fs-6 fw-bold text-dark m-0">Pantry Status</h4>
+                        <div class="pantry-item">
+                            <div class="pantry-label">
+                                <span>Riz brun</span>
+                                <span class="status-ok">Bien approvisionné</span>
                             </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="text-uppercase fw-bold text-muted" style="font-size: 10px; letter-spacing: 1px;">Olive Oil</span>
-                                    <span class="text-secondary-custom fw-bold small">Low</span>
-                                </div>
-                                <div class="progress" style="height: 6px;">
-                                    <div class="progress-bar bg-secondary-custom" style="width: 15%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <span class="text-uppercase fw-bold text-muted" style="font-size: 10px; letter-spacing: 1px;">Brown Rice</span>
-                                    <span class="text-primary-custom fw-bold small">Stocked</span>
-                                </div>
-                                <div class="progress" style="height: 6px;">
-                                    <div class="progress-bar bg-primary-custom" style="width: 85%"></div>
-                                </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-fill" style="width:85%;background:var(--primary);"></div>
                             </div>
                         </div>
-
+                        <div class="pantry-item">
+                            <div class="pantry-label">
+                                <span>Pâtes</span>
+                                <span class="status-ok">Bien approvisionné</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-fill" style="width:70%;background:var(--primary);"></div>
+                            </div>
+                        </div>
+                        <div class="pantry-item">
+                            <div class="pantry-label">
+                                <span>Farine</span>
+                                <span class="status-low">Faible</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-fill" style="width:25%;background:var(--secondary);"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-            </div>
+            </div><!-- /main-content -->
 
-        </main>
+            <!-- ── GROCERY SIDEBAR ── -->
+            <aside class="grocery-sidebar">
+                <div class="grocery-header">
+                    <h2>
+                        <span class="material-symbols-outlined">shopping_basket</span>
+                        Liste de courses
+                    </h2>
+                    <div class="grocery-add-row">
+                        <input type="text" id="grocery-input" placeholder="Ajouter un article..." onkeydown="if(event.key==='Enter')addGroceryItem()">
+                        <button class="btn-grocery-add" onclick="addGroceryItem()">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grocery-categories" id="grocery-list">
+
+                    <div class="grocery-cat-label">Fruits & Légumes</div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Kale biologique</span>
+                        <span class="gi-qty">1 botte</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item checked" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Carottes</span>
+                        <span class="gi-qty">500g</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Avocats</span>
+                        <span class="gi-qty">3 pcs</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Champignons</span>
+                        <span class="gi-qty">250g</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Courge butternut</span>
+                        <span class="gi-qty">1 pièce</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+
+                    <div class="grocery-cat-label">Épicerie & Céréales</div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Quinoa</span>
+                        <span class="gi-qty">400g</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item checked" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Lentilles vertes</span>
+                        <span class="gi-qty">500g</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Farine T65</span>
+                        <span class="gi-qty">1 kg</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+
+                    <div class="grocery-cat-label">Produits laitiers</div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Parmesan</span>
+                        <span class="gi-qty">150g</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Mozzarella</span>
+                        <span class="gi-qty">2 boules</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+
+                    <div class="grocery-cat-label">Huiles & Condiments</div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Huile d'olive extra vierge</span>
+                        <span class="gi-qty">500 ml</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+                    <div class="grocery-item" onclick="toggleGrocery(this)">
+                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                        <span class="gi-name">Sauce tomate</span>
+                        <span class="gi-qty">2 pots</span>
+                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                    </div>
+
+                    <div id="added-items-section"></div>
+                </div>
+
+                <div class="grocery-footer" id="grocery-footer">
+                    <div class="progress-bar-wrap">
+                        <div class="progress-fill" id="grocery-progress" style="background:var(--primary);width:15%;"></div>
+                    </div>
+                    <p id="grocery-status">2 articles sur 13 cochés</p>
+                </div>
+            </aside>
+
+        </div><!-- /content-area -->
+    </div><!-- /main-area -->
+</div><!-- /app-shell -->
+
+<!-- ── ADD MEAL MODAL ── -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+        <h3>Ajouter un repas</h3>
+        <input type="text" id="modal-meal-name" placeholder="Nom du repas...">
+        <select id="modal-meal-type">
+            <option value="">Type de repas</option>
+            <option value="breakfast">Petit-déjeuner</option>
+            <option value="lunch">Déjeuner</option>
+            <option value="dinner">Dîner</option>
+        </select>
+        <input type="text" id="modal-meal-time" placeholder="Temps de préparation (ex : 20 mins)">
+        <div class="modal-actions">
+            <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+            <button class="btn-confirm" onclick="confirmAddMeal()">Ajouter</button>
+        </div>
     </div>
+</div>
 
-    <!-- Mobile Bottom Navigationbar (d-md-none) -->
-    <nav class="d-md-none fixed-bottom bg-glass border-top border-light d-flex justify-content-around py-2 z-3 shadow-sm">
-        <a href="#" class="text-decoration-none bg-primary-custom text-white py-1 px-3 d-flex flex-column align-items-center justify-content-center rounded-pill shadow-sm">
-            <span class="material-symbols-outlined" style="font-size:20px;">home_work</span>
-            <span class="font-body fw-bold" style="font-size: 10px;">Hub</span>
-        </a>
-        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
-            <span class="material-symbols-outlined">shopping_basket</span>
-            <span class="font-body fw-medium" style="font-size: 10px;">Groceries</span>
-        </a>
-        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
-            <span class="material-symbols-outlined">menu_book</span>
-            <span class="font-body fw-medium" style="font-size: 10px;">Recipes</span>
-        </a>
-        <a href="#" class="text-decoration-none text-muted d-flex flex-column align-items-center">
-            <span class="material-symbols-outlined">explore</span>
-            <span class="font-body fw-medium" style="font-size: 10px;">Discover</span>
-        </a>
-    </nav>
-    
-    <!-- Floating Action Button Contextual to Hub -->
-    <a href="#" class="btn bg-primary-custom text-white position-fixed rounded-circle shadow-lg d-flex align-items-center justify-content-center hover-lift border-0 primary-gradient-hover" style="bottom: 5rem; right: 2rem; width: 64px; height: 64px; z-index: 1030;">
-        <span class="material-symbols-outlined fs-3 d-none d-md-block">auto_awesome</span>
-        <span class="material-symbols-outlined fs-3 d-md-none">add_shopping_cart</span>
-    </a>
+<script>
+let currentCol = null;
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+const days = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+
+function openModal(colIndex) {
+    currentCol = colIndex;
+    document.getElementById('modal').classList.add('show');
+    document.getElementById('modal-meal-name').value = '';
+    document.getElementById('modal-meal-type').value = '';
+    document.getElementById('modal-meal-time').value = '';
+    document.getElementById('modal-meal-name').focus();
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.remove('show');
+    currentCol = null;
+}
+
+function confirmAddMeal() {
+    const name = document.getElementById('modal-meal-name').value.trim();
+    const type = document.getElementById('modal-meal-type').value;
+    const time = document.getElementById('modal-meal-time').value.trim();
+    if (!name) { document.getElementById('modal-meal-name').focus(); return; }
+
+    const tagMap = { breakfast: 'tag-breakfast', lunch: 'tag-lunch', dinner: 'tag-dinner' };
+    const labelMap = { breakfast: 'Petit-déjeuner', lunch: 'Déjeuner', dinner: 'Dîner' };
+
+    const card = document.createElement('div');
+    card.className = 'meal-card';
+    card.innerHTML = `
+        ${type ? `<span class="meal-tag ${tagMap[type]}">${labelMap[type]}</span>` : ''}
+        <h4>${name}</h4>
+        ${time ? `<p class="meal-time">${time}</p>` : ''}
+    `;
+
+    const col = document.getElementById('col-' + currentCol);
+    const btn = col.querySelector('.btn-add-meal');
+    col.insertBefore(card, btn);
+
+    closeModal();
+}
+
+// Grocery toggles
+function toggleGrocery(el) {
+    el.classList.toggle('checked');
+    updateGroceryProgress();
+}
+
+function removeItem(e, btn) {
+    e.stopPropagation();
+    btn.closest('.grocery-item').remove();
+    updateGroceryProgress();
+}
+
+function updateGroceryProgress() {
+    const all = document.querySelectorAll('.grocery-item');
+    const checked = document.querySelectorAll('.grocery-item.checked');
+    const pct = all.length ? Math.round(checked.length / all.length * 100) : 0;
+    document.getElementById('grocery-progress').style.width = pct + '%';
+    document.getElementById('grocery-status').textContent = `${checked.length} article${checked.length!==1?'s':''} sur ${all.length} cochés`;
+}
+
+function addGroceryItem() {
+    const input = document.getElementById('grocery-input');
+    const val = input.value.trim();
+    if (!val) return;
+
+    let section = document.getElementById('added-items-section');
+    if (!section.querySelector('.grocery-cat-label')) {
+        const lbl = document.createElement('div');
+        lbl.className = 'grocery-cat-label';
+        lbl.textContent = 'Ajoutés manuellement';
+        section.appendChild(lbl);
+    }
+
+    const item = document.createElement('div');
+    item.className = 'grocery-item';
+    item.onclick = function(){ toggleGrocery(this); };
+    item.innerHTML = `
+        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+        <span class="gi-name">${val}</span>
+        <span class="gi-qty"></span>
+        <button class="gi-del" onclick="removeItem(event,this)">×</button>
+    `;
+    section.appendChild(item);
+    input.value = '';
+    updateGroceryProgress();
+    document.querySelector('.grocery-categories').scrollTop = 9999;
+}
+
+// Week buttons
+document.querySelectorAll('.btn-week').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.btn-week').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+updateGroceryProgress();
+</script>
 </body>
 </html>
