@@ -584,6 +584,62 @@
             font-size: 11px; color: var(--on-surface-variant); margin: 0;
         }
 
+        /* ── SIDEBAR TABS ─────────────────────────────── */
+        .sidebar-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .sidebar-tab-btn {
+            flex: 1;
+            padding: 11px 8px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: var(--on-surface-variant);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all .2s;
+        }
+        .sidebar-tab-btn:hover {
+            color: var(--primary);
+            background: var(--surface-low);
+        }
+        .sidebar-tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: var(--primary-xlight);
+        }
+        .sidebar-tab-btn .material-symbols-outlined { font-size: 16px; }
+        .tab-panel { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+        .tab-panel.active { display: flex; }
+
+        /* pantry inside sidebar */
+        .pantry-sidebar-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 18px;
+        }
+        .pantry-sidebar-body .pantry-item { margin-bottom: 14px; }
+        .pantry-sidebar-body .pantry-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: var(--on-surface-variant);
+            margin-bottom: 5px;
+        }
+
         /* ── SCROLLBARS ─────────────────────────────── */
         ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -833,61 +889,71 @@
                     </table>
                 </div>
 
-                <!-- ── BOTTOM ROW: Activity + Pantry ── -->
-                <div style="display:flex;gap:16px;">
-                    <!-- Family Activity -->
-                    <div class="activity-section" style="flex:1;">
-                        <h3>
-                            Family Likes
-                            <span class="material-symbols-outlined" style="color:var(--secondary);font-size:20px;">groups</span>
-                        </h3>
-                        <div class="activity-item">
-                            <div class="act-avatar">
-                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHYKR2dTGww3njsB7OOQT0J4l3MR5sejj1ll4QCkh7h5VEokFIXsdlQFaEhy-Y5DaGpzmPwZtziXrdZWgS2exg14SIHc2Jdgxqk9YPepUqLjiCKq1M2mlU2GunRnhIjp-1LK-fREjHz9yHej5yUjefEf_OlbmH0wWxtdfU5Kad4rtLrUttZTEXH0o9zFDhVfyCvmTmqDvMXkCvTA8YwSEjpD6OcyWvEldXZQFP8Xrq4RV8eHHBNBmrWDWSaazFjzEEAV8hDQLv53x" alt="Leo">
-                                <div class="act-badge" style="background:var(--secondary);">
-                                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">favorite</span>
-                                </div>
-                            </div>
-                            <div class="act-text">
-                                <p class="name">Leo</p>
-                                <p class="detail">A voté pour <span class="highlight-secondary">Taco Tuesday</span></p>
-                                <p class="time">Il y a 2 heures</p>
+                <!-- ── BOTTOM ROW: Activity only (Pantry moved to sidebar tabs) ── -->
+                <div class="activity-section">
+                    <h3>
+                        Family Likes
+                        <span class="material-symbols-outlined" style="color:var(--secondary);font-size:20px;">groups</span>
+                    </h3>
+                    <div class="activity-item">
+                        <div class="act-avatar">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHYKR2dTGww3njsB7OOQT0J4l3MR5sejj1ll4QCkh7h5VEokFIXsdlQFaEhy-Y5DaGpzmPwZtziXrdZWgS2exg14SIHc2Jdgxqk9YPepUqLjiCKq1M2mlU2GunRnhIjp-1LK-fREjHz9yHej5yUjefEf_OlbmH0wWxtdfU5Kad4rtLrUttZTEXH0o9zFDhVfyCvmTmqDvMXkCvTA8YwSEjpD6OcyWvEldXZQFP8Xrq4RV8eHHBNBmrWDWSaazFjzEEAV8hDQLv53x" alt="Leo">
+                            <div class="act-badge" style="background:var(--secondary);">
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">favorite</span>
                             </div>
                         </div>
-                        <div class="activity-item">
-                            <div class="act-avatar">
-                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIC7o5FO6wenMqZGNVRl7p_GwQOvWLnKQ43iDq0pJHdPwOEEz30GPCusn1Mlgo3vdUR_vxTw2C1zv19MzR3sP1YpOQ-B67YNT9NhIygLXNehxbMdOghRDHx37F5-OAgA_VNmIjjzXIR0whBJs9kWKEjdWe1An22T44a2eeBmjBBj_r6XOu_X9dr8-Td6VxIv4WJhqEpJe1NfgCgKRrWDooSWTrLCNJJNQuewIkbEhfa5iIpDmFlG8r6e41TtG-oGk5iZU-HIc52prn" alt="Marcus">
-                                <div class="act-badge" style="background:var(--primary);">
-                                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">eco</span>
-                                </div>
-                            </div>
-                            <div class="act-text">
-                                <p class="name">Marcus</p>
-                                <p class="detail">A partagé <span class="highlight-primary">Wild Honey Recipe</span></p>
-                                <p class="time">Il y a 5 heures</p>
-                            </div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="act-avatar">
-                                <div class="av-initials">S</div>
-                                <div class="act-badge" style="background:var(--secondary);">
-                                    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">add</span>
-                                </div>
-                            </div>
-                            <div class="act-text">
-                                <p class="name">Sarah</p>
-                                <p class="detail">A ajouté <span class="highlight-secondary">Avocats</span> aux courses</p>
-                                <p class="time">Hier</p>
-                            </div>
+                        <div class="act-text">
+                            <p class="name">Leo</p>
+                            <p class="detail">A voté pour <span class="highlight-secondary">Taco Tuesday</span></p>
+                            <p class="time">Il y a 2 heures</p>
                         </div>
                     </div>
+                    <div class="activity-item">
+                        <div class="act-avatar">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIC7o5FO6wenMqZGNVRl7p_GwQOvWLnKQ43iDq0pJHdPwOEEz30GPCusn1Mlgo3vdUR_vxTw2C1zv19MzR3sP1YpOQ-B67YNT9NhIygLXNehxbMdOghRDHx37F5-OAgA_VNmIjjzXIR0whBJs9kWKEjdWe1An22T44a2eeBmjBBj_r6XOu_X9dr8-Td6VxIv4WJhqEpJe1NfgCgKRrWDooSWTrLCNJJNQuewIkbEhfa5iIpDmFlG8r6e41TtG-oGk5iZU-HIc52prn" alt="Marcus">
+                            <div class="act-badge" style="background:var(--primary);">
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">eco</span>
+                            </div>
+                        </div>
+                        <div class="act-text">
+                            <p class="name">Marcus</p>
+                            <p class="detail">A partagé <span class="highlight-primary">Wild Honey Recipe</span></p>
+                            <p class="time">Il y a 5 heures</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="act-avatar">
+                            <div class="av-initials">S</div>
+                            <div class="act-badge" style="background:var(--secondary);">
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">add</span>
+                            </div>
+                        </div>
+                        <div class="act-text">
+                            <p class="name">Sarah</p>
+                            <p class="detail">A ajouté <span class="highlight-secondary">Avocats</span> aux courses</p>
+                            <p class="time">Hier</p>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Pantry Status -->
-                    <div class="pantry-section" style="flex:0 0 220px;">
-                        <h4>
-                            <span class="material-symbols-outlined" style="color:var(--primary);font-size:18px;">inventory_2</span>
-                            Statut du garde-manger
-                        </h4>
+            </div><!-- /main-content -->
+
+            <!-- ── TABBED SIDEBAR (Courses + Garde-manger) ── -->
+            <aside class="grocery-sidebar">
+
+                <!-- Tab Buttons -->
+                <div class="sidebar-tabs">
+                    <button class="sidebar-tab-btn" id="tab-btn-pantry" onclick="switchTab('pantry')">
+                        <span class="material-symbols-outlined">inventory_2</span> Garde-manger
+                    </button>
+                    <button class="sidebar-tab-btn" id="tab-btn-courses" onclick="switchTab('courses')">
+                        <span class="material-symbols-outlined">shopping_basket</span> Courses
+                    </button>
+                </div>
+
+                <!-- ── PANEL : GARDE-MANGER ── -->
+                <div class="tab-panel active" id="tab-panel-pantry">
+                    <div class="pantry-sidebar-body">
                         <div class="pantry-item">
                             <div class="pantry-label">
                                 <span>Huile d'olive</span>
@@ -924,116 +990,130 @@
                                 <div class="progress-fill" style="width:25%;background:var(--secondary);"></div>
                             </div>
                         </div>
+                        <div class="pantry-item">
+                            <div class="pantry-label">
+                                <span>Quinoa</span>
+                                <span class="status-ok">Bien approvisionné</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-fill" style="width:60%;background:var(--primary);"></div>
+                            </div>
+                        </div>
+                        <div class="pantry-item">
+                            <div class="pantry-label">
+                                <span>Bouillon de légumes</span>
+                                <span class="status-low">Faible</span>
+                            </div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-fill" style="width:10%;background:var(--secondary);"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-            </div><!-- /main-content -->
+                <!-- ── PANEL : LISTE DE COURSES ── -->
+                <div class="tab-panel" id="tab-panel-courses">
+                    <div class="grocery-header" style="border-bottom:1px solid var(--border);padding:14px 18px;flex-shrink:0;">
+                        <div class="grocery-add-row">
+                            <input type="text" id="grocery-input" placeholder="Ajouter un article..." onkeydown="if(event.key==='Enter')addGroceryItem()">
+                            <button class="btn-grocery-add" onclick="addGroceryItem()">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grocery-categories" id="grocery-list">
 
-            <!-- ── GROCERY SIDEBAR ── -->
-            <aside class="grocery-sidebar">
-                <div class="grocery-header">
-                    <h2>
-                        <span class="material-symbols-outlined">shopping_basket</span>
-                        Liste de courses
-                    </h2>
-                    <div class="grocery-add-row">
-                        <input type="text" id="grocery-input" placeholder="Ajouter un article..." onkeydown="if(event.key==='Enter')addGroceryItem()">
-                        <button class="btn-grocery-add" onclick="addGroceryItem()">
-                            <span class="material-symbols-outlined">add</span>
-                        </button>
+                        <div class="grocery-cat-label">Fruits & Légumes</div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Kale biologique</span>
+                            <span class="gi-qty">1 botte</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item checked" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Carottes</span>
+                            <span class="gi-qty">500g</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Avocats</span>
+                            <span class="gi-qty">3 pcs</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Champignons</span>
+                            <span class="gi-qty">250g</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Courge butternut</span>
+                            <span class="gi-qty">1 pièce</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+
+                        <div class="grocery-cat-label">Épicerie & Céréales</div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Quinoa</span>
+                            <span class="gi-qty">400g</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item checked" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Lentilles vertes</span>
+                            <span class="gi-qty">500g</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Farine T65</span>
+                            <span class="gi-qty">1 kg</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+
+                        <div class="grocery-cat-label">Produits laitiers</div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Parmesan</span>
+                            <span class="gi-qty">150g</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Mozzarella</span>
+                            <span class="gi-qty">2 boules</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+
+                        <div class="grocery-cat-label">Huiles & Condiments</div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Huile d'olive extra vierge</span>
+                            <span class="gi-qty">500 ml</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+                        <div class="grocery-item" onclick="toggleGrocery(this)">
+                            <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
+                            <span class="gi-name">Sauce tomate</span>
+                            <span class="gi-qty">2 pots</span>
+                            <button class="gi-del" onclick="removeItem(event,this)">×</button>
+                        </div>
+
+                        <div id="added-items-section"></div>
+                    </div>
+
+                    <div class="grocery-footer" id="grocery-footer">
+                        <div class="progress-bar-wrap">
+                            <div class="progress-fill" id="grocery-progress" style="background:var(--primary);width:15%;"></div>
+                        </div>
+                        <p id="grocery-status">2 articles sur 13 cochés</p>
                     </div>
                 </div>
-                <div class="grocery-categories" id="grocery-list">
 
-                    <div class="grocery-cat-label">Fruits & Légumes</div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Kale biologique</span>
-                        <span class="gi-qty">1 botte</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item checked" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Carottes</span>
-                        <span class="gi-qty">500g</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Avocats</span>
-                        <span class="gi-qty">3 pcs</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Champignons</span>
-                        <span class="gi-qty">250g</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Courge butternut</span>
-                        <span class="gi-qty">1 pièce</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-
-                    <div class="grocery-cat-label">Épicerie & Céréales</div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Quinoa</span>
-                        <span class="gi-qty">400g</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item checked" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Lentilles vertes</span>
-                        <span class="gi-qty">500g</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Farine T65</span>
-                        <span class="gi-qty">1 kg</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-
-                    <div class="grocery-cat-label">Produits laitiers</div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Parmesan</span>
-                        <span class="gi-qty">150g</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Mozzarella</span>
-                        <span class="gi-qty">2 boules</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-
-                    <div class="grocery-cat-label">Huiles & Condiments</div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Huile d'olive extra vierge</span>
-                        <span class="gi-qty">500 ml</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-                    <div class="grocery-item" onclick="toggleGrocery(this)">
-                        <div class="gi-check"><span class="material-symbols-outlined">check</span></div>
-                        <span class="gi-name">Sauce tomate</span>
-                        <span class="gi-qty">2 pots</span>
-                        <button class="gi-del" onclick="removeItem(event,this)">×</button>
-                    </div>
-
-                    <div id="added-items-section"></div>
-                </div>
-
-                <div class="grocery-footer" id="grocery-footer">
-                    <div class="progress-bar-wrap">
-                        <div class="progress-fill" id="grocery-progress" style="background:var(--primary);width:15%;"></div>
-                    </div>
-                    <p id="grocery-status">2 articles sur 13 cochés</p>
-                </div>
             </aside>
 
         </div><!-- /content-area -->
@@ -1157,6 +1237,17 @@ document.querySelectorAll('.btn-week').forEach(btn => {
         this.classList.add('active');
     });
 });
+
+// Sidebar tab switching
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-panel-' + tabId).classList.add('active');
+    document.getElementById('tab-btn-' + tabId).classList.add('active');
+}
+
+// Default active tab: Garde-manger
+switchTab('pantry');
 
 updateGroceryProgress();
 </script>
