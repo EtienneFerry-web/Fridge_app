@@ -62,297 +62,197 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+                        <!-- Main Content -->
         <main class="flex-grow-1 desktop-main-content p-4 p-md-5">
-
-            <!-- Desktop Search Header -->
-            <header class="d-none d-md-flex justify-content-between align-items-center mb-5 bg-surface-low p-3 rounded-pill shadow-sm sticky-top z-3 border border-light" style="top: 20px;">
-                <div class="d-flex align-items-center gap-3 bg-white rounded-pill px-4 py-2 flex-grow-1 max-w-md me-4 shadow-sm border border-light">
-                    <span class="material-symbols-outlined text-muted">search</span>
-                    <input type="text" class="form-control bg-transparent border-0 shadow-none px-0" placeholder="Search trends, recipes or users...">
-                </div>
-                <div class="d-flex align-items-center gap-4 pe-2">
-                    <button class="btn btn-sm text-primary-custom hover-opacity p-0"><span class="material-symbols-outlined fs-4">group</span></button>
-                    <button class="btn btn-sm text-primary-custom hover-opacity p-0 position-relative">
-                        <span class="material-symbols-outlined fs-4">notifications</span>
-                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-secondary-custom border border-light rounded-circle"></span>
-                    </button>
-                    <div class="d-flex align-items-center gap-3 ps-4 ms-2 border-start border-light border-2">
-                        <div class="text-end d-none d-lg-block">
-                            <p class="font-headline fw-bold fs-6 m-0">Julian Rossi</p>
-                            <p class="text-muted fw-bold m-0" style="font-size: 10px;">Head Curator</p>
-                        </div>
-                        <div class="rounded-circle overflow-hidden border border-success border-2 shadow-sm" style="width: 44px; height: 44px;">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiHHI9LSvhxiGBqT3psdlW_Tv1BUcY7qvc9TB8MKpIEvsw8hwiW0i9fFrj2qy02eQ_bKAEpa_CG0YClDTc_hN6HJTleBS8G-uVbanAMacgEUHDGE68epppmfybnw04cIOvEWqbpLs3wKjXftbtwQbRZhyNiO6Vgw-k0HepY3J1XznQOz6XCfzzOjVIezhc4erM-46l7wbE2TV1bja764fZPgR7jPFBlPQlHxA5FMzAJ17LRnv58jsYiXb1EC3iGGI90ihJxux3eXQ" class="w-100 h-100 object-fit-cover" alt="Julian Rossi">
-                        </div>
-                    </div>
-                </div>
-            </header>
-
             <!-- Dashboard Header -->
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-4">
-                <div>
-                    <span class="text-secondary-custom fw-semibold tracking-wider text-uppercase d-block mb-2" style="font-size: 11px;">Executive Insights</span>
-                    <h1 class="display-5 font-headline fw-bolder text-dark m-0 mb-2 mt-1">Curator Dashboard</h1>
-                    <p class="text-on-surface-variant font-body mb-0 max-w-md text-muted">Overseeing the growth of the digital greenhouse. Trends are blooming across global regions.</p>
-                </div>
-                <!-- Action Buttons -->
-                <div class="d-flex gap-3">
-                    <button class="btn bg-white border border-light text-dark rounded-pill px-4 py-2 fw-bold shadow-sm d-flex align-items-center gap-2 hover-bg-light">
-                        <span class="material-symbols-outlined fs-6">download</span> Export Report
-                    </button>
-                    <button class="btn bg-primary-custom text-white rounded-pill px-4 py-2 fw-bold shadow-sm d-flex align-items-center gap-2 primary-gradient-hover">
-                        <span class="material-symbols-outlined fs-6">add</span> New Recipe
-                    </button>
-                </div>
+            <div class="mb-4">
+                <h1 class="display-5 font-headline fw-bolder text-dark">Administration</h1>
+                <p class="text-muted font-body">Gérez les recettes et les utilisateurs de la plateforme.</p>
             </div>
 
-            <!-- Dashboard Grid -->
-            <div class="row g-4 mb-5">
-                
-                <!-- Global Trends Hero -->
-                <div class="col-xl-8 col-lg-7">
-                    <div class="bg-white rounded-4 p-4 p-md-5 position-relative overflow-hidden d-flex flex-column justify-content-between h-100 shadow-sm border border-light z-1" style="min-height: 400px;">
+            <!-- Custom Tabs Navigation -->
+            <ul class="nav nav-pills mb-4 gap-2 border-bottom border-light pb-3" id="adminTabsList">
+                <li class="nav-item">
+                    <button class="nav-link active fw-bold px-4 rounded-pill transition bg-primary-custom text-white" id="tab-recipes" onclick="switchThemeTab('recipes')">Modération des Recettes</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link fw-bold px-4 rounded-pill transition text-muted bg-light hover-bg-white border border-light" id="tab-users" onclick="switchThemeTab('users')">Gestion des Utilisateurs</button>
+                </li>
+            </ul>
+
+            <!-- Tabs Content -->
+            <div id="adminTabsContent">
+                <!-- Recipe Moderation Tab -->
+                <div id="content-recipes" class="tab-section d-block">
+                    <div class="bg-white rounded-4 shadow-sm border border-light overflow-hidden">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="bg-light text-muted small text-uppercase font-headline tracking-wider">
+                                    <tr>
+                                        <th class="ps-4 py-3 fw-semibold border-0">Titre de la recette</th>
+                                        <th class="py-3 fw-semibold border-0">Auteur</th>
+                                        <th class="py-3 fw-semibold border-0">Date de création</th>
+                                        <th class="pe-4 py-3 fw-semibold text-end border-0">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="api-recipes-list">
+                                    <!-- Placeholder Item 1 -->
+                                    <tr class="border-bottom border-light">
+                                        <td class="ps-4 py-3 d-flex align-items-center gap-3">
+                                            <div class="rounded-3 overflow-hidden bg-surface flex-shrink-0 border border-light" style="width:40px; height:40px;">
+                                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNldU0qbE9w_EehSCuwGJrrV6g7ZJyGK1fg-zSSxB5bdFozRKUZRQn4u2bPzZ5feuWbFqoK0BxFYEVtR-Mnh11ACvO4gTZPYexISm3A4A6TPWFCrr_-2SjaVNmW0FLGenC-hBfXkrDbguaBD5dLK2OQKzz4Kq90n2xnJDlEjo_J8u4fRWdFQvqEpSq3dHrcD2QWw86vD39FpHYDndB26kq1fayjMUG-bL5z8ND98R7V-a6SQ0BUbzrrkredCwjqzENm9f5-XlKVEM" class="w-100 h-100 object-fit-cover" alt="Recipe">
+                                            </div>
+                                            <span class="fw-bold text-dark mb-0 font-headline">Heirloom Harvest Bowl</span>
+                                        </td>
+                                        <td class="py-3 text-muted">Maria S.</td>
+                                        <td class="py-3 text-muted">05 Avr 2026</td>
+                                        <td class="pe-4 py-3 text-end">
+                                            <div class="d-flex justify-content-end gap-2">
+                                                <button class="btn btn-sm btn-light rounded-circle p-2 text-primary-custom d-flex align-items-center justify-content-center btn-api-view" data-id="1" title="Voir">
+                                                    <span class="material-symbols-outlined fs-6">visibility</span>
+                                                </button>
+                                                <button class="btn btn-sm btn-success bg-opacity-10 text-success border-0 rounded-pill px-3 fw-bold btn-api-accept hover-opacity" data-id="1">
+                                                    Accepter
+                                                </button>
+                                                <button class="btn btn-sm btn-danger bg-opacity-10 text-danger border-0 rounded-pill px-3 fw-bold btn-api-reject hover-opacity" data-id="1">
+                                                    Refuser
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Placeholder Item 2 -->
+                                    <tr>
+                                        <td class="ps-4 py-3 d-flex align-items-center gap-3">
+                                            <div class="rounded-3 overflow-hidden bg-surface flex-shrink-0 border border-light" style="width:40px; height:40px;">
+                                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjsK7FEOanCTL1nByJ7mI0izv-O1Tx4NtSAHkC1PdCWrUZfyYUfGzbwES3LdKtkxbn61FjrT_Ctx6mKJz_gckoghQDOCjwSM4Sf1gQxXnNS27Ii0d3nc4ni4q3ISLY24wStqD1JcCg7watu7uR-WMKRDaX3aHS3SLWbbmCYAvgCmfvGTYUt2w_2uPp6fASpB_qaVS42TYNRZwLVG7MK0wHTtllXe6Vosl2oWdsg-Zb7Tx2tX_6VGWTy8L4csAQ311AttTn5TG51lE" class="w-100 h-100 object-fit-cover" alt="Recipe">
+                                            </div>
+                                            <span class="fw-bold text-dark mb-0 font-headline">Smoked Tomato Bisque</span>
+                                        </td>
+                                        <td class="py-3 text-muted">Julian R.</td>
+                                        <td class="py-3 text-muted">04 Avr 2026</td>
+                                        <td class="pe-4 py-3 text-end">
+                                            <div class="d-flex justify-content-end gap-2">
+                                                <button class="btn btn-sm btn-light rounded-circle p-2 text-primary-custom d-flex align-items-center justify-content-center btn-api-view" data-id="2" title="Voir">
+                                                    <span class="material-symbols-outlined fs-6">visibility</span>
+                                                </button>
+                                                <button class="btn btn-sm btn-success bg-opacity-10 text-success border-0 rounded-pill px-3 fw-bold btn-api-accept hover-opacity" data-id="2">
+                                                    Accepter
+                                                </button>
+                                                <button class="btn btn-sm btn-danger bg-opacity-10 text-danger border-0 rounded-pill px-3 fw-bold btn-api-reject hover-opacity" data-id="2">
+                                                    Refuser
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Management Tab -->
+                <div id="content-users" class="tab-section d-none">
+                    <div class="bg-white rounded-4 shadow-sm border border-light overflow-hidden">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="bg-light text-muted small text-uppercase font-headline tracking-wider">
+                                    <tr>
+                                        <th class="ps-4 py-3 fw-semibold border-0">Nom d'utilisateur</th>
+                                        <th class="py-3 fw-semibold border-0">Email</th>
+                                        <th class="py-3 fw-semibold border-0">Rôle actuel</th>
+                                        <th class="pe-4 py-3 fw-semibold text-end border-0">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="api-users-list">
+                                    <!-- Placeholder Item 1 -->
+                                    <tr class="border-bottom border-light">
+                                        <td class="ps-4 py-3 fw-bold text-dark font-headline">Elena Thorne</td>
+                                        <td class="py-3 text-muted">elena@greenwood.com</td>
+                                        <td class="py-3">
+                                            <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 rounded-pill px-2 py-1 tracking-wider">USER</span>
+                                        </td>
+                                        <td class="pe-4 py-3 text-end">
+                                            <div class="d-flex justify-content-end gap-2 align-items-center">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-light border border-light rounded-pill px-3 fw-bold dropdown-toggle text-muted hover-bg-white shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Promouvoir
+                                                    </button>
+                                                    <ul class="dropdown-menu shadow-sm rounded-3 border-light">
+                                                        <li><a class="dropdown-item btn-api-promote fw-semibold text-sm" href="#" data-id="1" data-role="Modérateur">Modérateur</a></li>
+                                                        <li><a class="dropdown-item btn-api-promote fw-semibold text-sm" href="#" data-id="1" data-role="Admin">Admin</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm btn-warning bg-opacity-10 text-warning border-0 rounded-pill px-3 fw-bold btn-api-block hover-opacity" data-id="1">
+                                                    Bloquer
+                                                </button>
+                                                <button class="btn btn-sm bg-danger text-white border-0 rounded-pill px-3 fw-bold shadow-sm btn-api-delete hover-opacity" data-id="1">
+                                                    Supprimer
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Placeholder Item 2 -->
+                                    <tr>
+                                        <td class="ps-4 py-3 fw-bold text-dark font-headline">Marcus Chen</td>
+                                        <td class="py-3 text-muted">marcus@greenwood.com</td>
+                                        <td class="py-3">
+                                            <span class="badge bg-primary-custom bg-opacity-10 text-primary-custom border border-primary border-opacity-25 rounded-pill px-2 py-1 tracking-wider">MODÉRATEUR</span>
+                                        </td>
+                                        <td class="pe-4 py-3 text-end">
+                                            <div class="d-flex justify-content-end gap-2 align-items-center">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-light border border-light rounded-pill px-3 fw-bold dropdown-toggle text-muted hover-bg-white shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Promouvoir
+                                                    </button>
+                                                    <ul class="dropdown-menu shadow-sm rounded-3 border-light">
+                                                        <li><a class="dropdown-item btn-api-promote fw-semibold text-sm" href="#" data-id="2" data-role="Admin">Admin</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button class="btn btn-sm btn-warning bg-opacity-10 text-warning border-0 rounded-pill px-3 fw-bold btn-api-block hover-opacity" data-id="2">
+                                                    Bloquer
+                                                </button>
+                                                <button class="btn btn-sm bg-danger text-white border-0 rounded-pill px-3 fw-bold shadow-sm btn-api-delete hover-opacity" data-id="2">
+                                                    Supprimer
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Simple JS Script for Tab Switching -->
+            <script>
+                function switchThemeTab(tabId) {
+                    const btnRecipes = document.getElementById('tab-recipes');
+                    const btnUsers = document.getElementById('tab-users');
+                    const contentRecipes = document.getElementById('content-recipes');
+                    const contentUsers = document.getElementById('content-users');
+
+                    if (tabId === 'recipes') {
+                        btnRecipes.classList.add('bg-primary-custom', 'text-white', 'active');
+                        btnRecipes.classList.remove('text-muted', 'bg-light', 'hover-bg-white', 'border', 'border-light');
                         
-                        <div class="position-absolute top-0 end-0 h-100 w-50 z-n1 d-none d-md-block" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCy68rdb2dS7MBqkZVvkT2SEu62nbB7eAroaImNzZNu7ZcObRXGZtP7wYrCKDwSnaY4A9NrANQvkX668WB-23QaB0xtvpBTZoh5EmJYD5Sh6JK05IX9yFGEbn39il-wQEdO8dI3UvD13Igaq0kI12ZF9X16LAmdS7tNkIpIYAczsRwfnnGXBMMm-0JbRqVfJlz40s6T6doFYnXUClk1afffw0g_iZsHCfysZxV57OBTG8Xv8j-FMFEPGJWjQjZQRhrTJWPK98b8SQ8'); background-size: cover; background-position: center; opacity: 0.9;">
-                            <div class="w-100 h-100" style="background: linear-gradient(to right, white 10%, transparent 100%);"></div>
-                        </div>
-
-                        <div class="z-3">
-                            <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 text-uppercase fw-bold mb-4 tracking-wider" style="font-size: 10px;">TRENDING NOW</span>
-                            <h2 class="display-6 font-headline fw-bolder text-dark mb-3" style="max-width: 400px;">Artisanal Fermentation: The New Culinary Frontier</h2>
-                            <p class="text-muted font-body mb-0 lh-lg" style="max-width: 350px;">Engagement in sourdough and pickling content has increased by 42% this quarter. High conversion on starter-kit inventory.</p>
-                        </div>
-
-                        <div class="z-3 d-flex flex-wrap gap-3 mt-4 mt-md-0">
-                            <button class="btn bg-primary-custom text-white rounded-pill px-4 py-3 fw-bold shadow d-flex align-items-center gap-2 primary-gradient-hover font-headline text-sm">
-                                View Detailed Report <span class="material-symbols-outlined fs-5">arrow_forward</span>
-                            </button>
-                            <button class="btn bg-light border border-light text-dark rounded-pill px-4 py-3 fw-bold hover-bg-light font-headline text-sm">
-                                Adjust Content Strategy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Metrics Column -->
-                <div class="col-xl-4 col-lg-5 d-flex flex-column gap-4">
-                    
-                    <!-- Metric Card 1 -->
-                    <div class="bg-white rounded-4 p-4 d-flex align-items-center justify-content-between shadow-sm border border-light border-bottom-0" style="border-bottom: 4px solid #4a654f !important;">
-                        <div>
-                            <p class="text-muted text-uppercase fw-bold mb-1 tracking-wider font-headline" style="font-size: 11px;">Total Curators</p>
-                            <h3 class="display-6 font-headline fw-bolder text-dark mb-2">12,842</h3>
-                            <p class="text-success fw-bold m-0 d-flex align-items-center gap-1 small">
-                                <span class="material-symbols-outlined fs-6">trending_up</span> +12% from last month
-                            </p>
-                        </div>
-                        <div class="rounded-4 bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center flex-shrink-0" style="width: 64px; height: 64px;">
-                            <span class="material-symbols-outlined fs-1">groups</span>
-                        </div>
-                    </div>
-
-                    <!-- Metric Card 2 -->
-                    <div class="bg-white rounded-4 p-4 d-flex align-items-center justify-content-between shadow-sm border border-light border-bottom-0" style="border-bottom: 4px solid #9f402d !important;">
-                        <div>
-                            <p class="text-muted text-uppercase fw-bold mb-1 tracking-wider font-headline" style="font-size: 11px;">Pantry Items</p>
-                            <h3 class="display-6 font-headline fw-bolder text-dark mb-2">84.2k</h3>
-                            <p class="text-secondary-custom fw-bold m-0 d-flex align-items-center gap-1 small">
-                                <span class="material-symbols-outlined fs-6">check_circle</span> Optimized storage levels
-                            </p>
-                        </div>
-                        <div class="rounded-4 bg-danger bg-opacity-10 text-danger d-flex align-items-center justify-content-center flex-shrink-0" style="width: 64px; height: 64px;">
-                            <span class="material-symbols-outlined fs-1">inventory_2</span>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="row g-5">
-                
-                <!-- Content Management Column -->
-                <div class="col-lg-8 col-xl-9">
-                    <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm border border-light">
+                        btnUsers.classList.remove('bg-primary-custom', 'text-white', 'active');
+                        btnUsers.classList.add('text-muted', 'bg-light', 'hover-bg-white', 'border', 'border-light');
                         
-                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
-                            <div>
-                                <h3 class="fs-4 font-headline fw-bolder text-dark m-0 mb-1">Recipe Management</h3>
-                                <p class="text-muted small mb-0">Audit, edit, and publish new curated content</p>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <div class="position-relative">
-                                    <span class="material-symbols-outlined position-absolute text-muted fs-5" style="top: 50%; left: 1rem; transform: translateY(-50%);">filter_list</span>
-                                    <select class="form-select bg-light border-0 shadow-none rounded-pill py-2 ps-5 pe-4 fw-bold font-headline text-sm cursor-pointer hover-bg-white transition" style="appearance: none;">
-                                        <option>All Categories</option>
-                                        <option>Organic</option>
-                                        <option>Shared</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Recipe List -->
-                        <div class="d-flex flex-column gap-3 overflow-y-auto custom-scrollbar pe-2" style="max-height: 500px;">
-                            
-                            <!-- Item 1 -->
-                            <div class="bg-surface-lowest p-3 p-md-4 rounded-4 shadow-sm border border-light d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4 hover-lift cursor-pointer transition">
-                                <div class="d-flex align-items-center gap-4">
-                                    <div class="rounded-4 overflow-hidden shadow-sm flex-shrink-0" style="width: 80px; height: 80px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNldU0qbE9w_EehSCuwGJrrV6g7ZJyGK1fg-zSSxB5bdFozRKUZRQn4u2bPzZ5feuWbFqoK0BxFYEVtR-Mnh11ACvO4gTZPYexISm3A4A6TPWFCrr_-2SjaVNmW0FLGenC-hBfXkrDbguaBD5dLK2OQKzz4Kq90n2xnJDlEjo_J8u4fRWdFQvqEpSq3dHrcD2QWw86vD39FpHYDndB26kq1fayjMUG-bL5z8ND98R7V-a6SQ0BUbzrrkredCwjqzENm9f5-XlKVEM" class="w-100 h-100 object-fit-cover" alt="Bowl">
-                                    </div>
-                                    <div>
-                                        <h4 class="font-headline fs-6 fw-bold mb-1 text-dark">Heirloom Harvest Bowl</h4>
-                                        <p class="text-muted mb-2" style="font-size: 11px;">Last edited: 2 hours ago by Maria S.</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-light text-muted border border-secondary border-opacity-25 rounded-pill fw-bold text-uppercase px-2" style="font-size: 9px;">Seasonal</span>
-                                            <span class="badge bg-light text-muted border border-secondary border-opacity-25 rounded-pill fw-bold text-uppercase px-2" style="font-size: 9px;">Vegetarian</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between justify-content-md-end w-100 w-md-auto gap-4">
-                                    <div class="text-md-end">
-                                        <p class="fw-bold text-dark m-0 fs-6 font-headline">4.8k Views</p>
-                                        <p class="text-primary-custom fw-bold m-0 small">92% Engagement</p>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-light rounded-circle p-2 shadow-none text-primary-custom hover-bg-white d-flex"><span class="material-symbols-outlined fs-5">edit</span></button>
-                                        <button class="btn btn-light rounded-circle p-2 shadow-none text-danger hover-bg-white d-flex"><span class="material-symbols-outlined fs-5">delete</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Item 2 -->
-                            <div class="bg-surface-lowest p-3 p-md-4 rounded-4 shadow-sm border border-light d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4 hover-lift cursor-pointer transition">
-                                <div class="d-flex align-items-center gap-4">
-                                    <div class="rounded-4 overflow-hidden shadow-sm flex-shrink-0" style="width: 80px; height: 80px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjsK7FEOanCTL1nByJ7mI0izv-O1Tx4NtSAHkC1PdCWrUZfyYUfGzbwES3LdKtkxbn61FjrT_Ctx6mKJz_gckoghQDOCjwSM4Sf1gQxXnNS27Ii0d3nc4ni4q3ISLY24wStqD1JcCg7watu7uR-WMKRDaX3aHS3SLWbbmCYAvgCmfvGTYUt2w_2uPp6fASpB_qaVS42TYNRZwLVG7MK0wHTtllXe6Vosl2oWdsg-Zb7Tx2tX_6VGWTy8L4csAQ311AttTn5TG51lE" class="w-100 h-100 object-fit-cover" alt="Soup">
-                                    </div>
-                                    <div>
-                                        <h4 class="font-headline fs-6 fw-bold mb-1 text-dark">Smoked Tomato & Basil Bisque</h4>
-                                        <p class="text-muted mb-2" style="font-size: 11px;">Last edited: 5 hours ago by Julian R.</p>
-                                        <div class="d-flex gap-2">
-                                            <span class="badge bg-light text-muted border border-secondary border-opacity-25 rounded-pill fw-bold text-uppercase px-2" style="font-size: 9px;">Comfort Food</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between justify-content-md-end w-100 w-md-auto gap-4">
-                                    <div class="text-md-end">
-                                        <p class="fw-bold text-dark m-0 fs-6 font-headline">3.2k Views</p>
-                                        <p class="text-primary-custom fw-bold m-0 small">88% Engagement</p>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-light rounded-circle p-2 shadow-none text-primary-custom hover-bg-white d-flex"><span class="material-symbols-outlined fs-5">edit</span></button>
-                                        <button class="btn btn-light rounded-circle p-2 shadow-none text-danger hover-bg-white d-flex"><span class="material-symbols-outlined fs-5">delete</span></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Side Panel Column -->
-                <div class="col-lg-4 col-xl-3 d-flex flex-column gap-5">
-                    
-                    <!-- Top Curators -->
-                    <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm border border-light d-flex flex-column h-100">
-                        <h3 class="fs-5 fw-bold font-headline mb-4 text-dark">Top Curators</h3>
-                        <div class="d-flex flex-column gap-4 flex-grow-1">
-                            
-                            <!-- Curator 1 -->
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="position-relative">
-                                    <div class="rounded-circle overflow-hidden border border-success border-2 shadow-sm" style="width: 48px; height: 48px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFFbS9xSPhDt1-toM7nXtQowTDjAG6QKfLpHUobRjeS4SawuN0u40S1-f_N5p5zJBVxfOOEmo0Ffiw_RdHQWuPMvIDa-F-uIdQaV5lNzx7RMtQXkor1mD-EkTsv6ggB1bzKgfGgiOkRddQJjOp3JWd5Y8YpjFepICFJQjnZ9KMtWH8s6Pj3LiXXwatjloQhXpR5yfodCgnJF1GMNDRxiJnVWgKuyUvgdGeIl4ob72WKz8n-OCRM9rsGCSIqWks_FaEoz_5vKy1a8o" alt="Curator" class="w-100 h-100 object-fit-cover">
-                                    </div>
-                                    <span class="position-absolute bottom-0 end-0 translate-middle-x bg-secondary-custom text-white rounded-circle d-flex justify-content-center align-items-center fw-bold border border-white" style="width: 20px; height: 20px; font-size: 10px; margin-right: -10px; margin-bottom: -5px;">1</span>
-                                </div>
-                                <div>
-                                    <p class="fw-bold text-dark font-headline m-0 fs-6">Elena Thorne</p>
-                                    <p class="text-muted m-0 small font-body">124 Recipes • 8.2k saves</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Curator 2 -->
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="position-relative">
-                                    <div class="rounded-circle overflow-hidden border border-light border-2 shadow-sm" style="width: 48px; height: 48px;">
-                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcthERZ__gsRpDDSQvn_7xKLhZJ8FJ2UI2RqdZVEuaKfhZOXeiZYGUJ4aSDsFkXlZZtdCgyZzmeTBo-1SEJv6DIKmloAz_4cAFKpfA4EWLkex1JIoQihcj6WIiFZh1X5hgPgDm4-i2Mgt29Rn5wnpyyroBvaYlkuqPdEBb7_i5wkaP1aaJgSdCtvsjKrDmiOKHmqTA4m3VewcHeOyusX4pS6-t-lKoIOrYjQIsArkdBmDJG6wZ_JUxR0tw50LHWoBei0DUJ27KoDg" alt="Curator" class="w-100 h-100 object-fit-cover">
-                                    </div>
-                                    <span class="position-absolute bottom-0 end-0 translate-middle-x bg-primary-custom bg-opacity-75 text-white rounded-circle d-flex justify-content-center align-items-center fw-bold border border-white" style="width: 20px; height: 20px; font-size: 10px; margin-right: -10px; margin-bottom: -5px;">2</span>
-                                </div>
-                                <div>
-                                    <p class="fw-bold text-dark font-headline m-0 fs-6">Marcus Chen</p>
-                                    <p class="text-muted m-0 small font-body">98 Recipes • 5.1k saves</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <button class="btn btn-link text-primary-custom text-decoration-none text-start p-0 mt-4 fw-bold font-headline d-flex align-items-center gap-1 hover-opacity shadow-none" style="font-size: 12px;">
-                            Manage All Users <span class="material-symbols-outlined" style="font-size: 14px;">north_east</span>
-                        </button>
-                    </div>
-
-                    <!-- Quick Action Card -->
-                    <div class="bg-secondary-custom text-white rounded-4 p-4 p-md-5 position-relative overflow-hidden shadow-sm hover-lift cursor-pointer">
-                        <div class="position-relative z-1">
-                            <h4 class="font-headline fw-bold fs-5 mb-2">Inventory Alert</h4>
-                            <p class="text-white-50 small font-body mb-4 lh-base">Stock of 'Artisan Sourdough' is below 15% threshold across all zones.</p>
-                            <button class="btn bg-white text-secondary-custom rounded-pill fw-bold text-uppercase px-4 py-2 hover-opacity" style="font-size: 11px; letter-spacing: 1px;">Refill Supplies</button>
-                        </div>
-                        <span class="material-symbols-outlined position-absolute opacity-10" style="font-size: 160px; right: -30px; bottom: -40px; transform: rotate(-15deg);">warning</span>
-                    </div>
-
-                </div>
-
-                <!-- Regional Heatmap Placeholder -->
-                <div class="col-12">
-                    <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm border border-light">
-                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-4">
-                            <div>
-                                <h3 class="font-headline fw-bold fs-4 m-0 mb-2">Regional Culinary Interest</h3>
-                                <p class="text-muted small m-0">Heatmap based on ingredient searches and plan additions</p>
-                            </div>
-                            <div class="d-flex gap-4">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="rounded-circle bg-primary-custom" style="width: 12px; height: 12px;"></div>
-                                    <span class="text-muted fw-bold text-uppercase tracking-wider" style="font-size: 10px;">Western Europe</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <div class="rounded-circle bg-secondary-custom" style="width: 12px; height: 12px;"></div>
-                                    <span class="text-muted fw-bold text-uppercase tracking-wider" style="font-size: 10px;">North America</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bar Chart abstraction -->
-                        <div class="d-flex align-items-end gap-2 px-3 pt-4 mb-4" style="height: 250px;">
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-primary h-50" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-secondary h-75" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-primary h-25" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-secondary h-100 bg-secondary bg-opacity-25 border-secondary border-opacity-50" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-primary h-50" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-secondary h-25" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-primary h-75 bg-success bg-opacity-25 border-success border-opacity-50" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-secondary h-50" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-primary h-25" style="min-width: 15px;"></div>
-                            <div class="flex-grow-1 bg-light border border-light rounded-top-3 transition hover-bg-secondary h-100" style="min-width: 15px;"></div>
-                        </div>
-                        <div class="d-flex justify-content-between px-3">
-                            <span class="text-muted fw-bold text-uppercase tracking-wider d-none d-sm-block" style="font-size: 10px;">January</span>
-                            <span class="text-muted fw-bold text-uppercase tracking-wider" style="font-size: 10px;">Feb</span>
-                            <span class="text-muted fw-bold text-uppercase tracking-wider d-none d-sm-block" style="font-size: 10px;">March</span>
-                            <span class="text-muted fw-bold text-uppercase tracking-wider" style="font-size: 10px;">Apr</span>
-                            <span class="text-muted fw-bold text-uppercase tracking-wider d-none d-sm-block" style="font-size: 10px;">May</span>
-                            <span class="text-muted fw-bold text-uppercase tracking-wider" style="font-size: 10px;">Jun</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+                        contentRecipes.classList.replace('d-none', 'd-block');
+                        contentUsers.classList.replace('d-block', 'd-none');
+                    } else if (tabId === 'users') {
+                        btnUsers.classList.add('bg-primary-custom', 'text-white', 'active');
+                        btnUsers.classList.remove('text-muted', 'bg-light', 'hover-bg-white', 'border', 'border-light');
+                        
+                        btnRecipes.classList.remove('bg-primary-custom', 'text-white', 'active');
+                        btnRecipes.classList.add('text-muted', 'bg-light', 'hover-bg-white', 'border', 'border-light');
+                        
+                        contentUsers.classList.replace('d-none', 'd-block');
+                        contentRecipes.classList.replace('d-block', 'd-none');
+                    }
+                }
+            </script>
         </main>
     </div>
 
